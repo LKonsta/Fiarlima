@@ -1,0 +1,26 @@
+{% extends "layout.html"  %}
+
+{% block body %} 
+<table>
+	<tr>
+		<th>Date made</th>
+		<th>List</th>
+		<th>Done</th>
+		<th></th>
+		
+	</tr>
+
+	{% for list in lists %}
+	<tr>
+		<td>{{ list.date_created }}</td>
+		<td>{{ list.name }}</td>
+		<td>{{ list.done }}</td>
+		<td>
+			<form method="POST" action="{{ url_for('lists_set_done', list_id=list.id) }}">
+				<input type="submit" value="Change to True!"/>
+			</form>
+		</td>
+	</tr>
+	{% endfor %}
+</talbe>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Fiarlima</title>
+	</head>
+
+	<body>
+
+		<ul>
+			<li><a href="{{ url_for('lists_index') }}">List lists</a></li>
+			<li><a href="{{ url_for('lists_form') }}">Add a list</a></li>
+		</ul>
+
+		{% block body %}
+		<p>
+			Content.
+		</p>
+		{% endblock %}
+	</body>
+</html>
