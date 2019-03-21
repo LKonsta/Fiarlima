@@ -6,6 +6,6 @@ The database will consist of three tables for the army point listing and two tab
 
 Link to currently working [Heroku](https://fiarlima-python-demo.herokuapp.com/) version.
 
-Link to planned [database diagram](../blob/master/documentation.Fiarlime.pdf) and to [use cases](https://www.google.com/)
+Link to planned [database diagram](../master/documentation/Fiarlime.pdf) and to [use cases](https://www.google.com/)
 
 
