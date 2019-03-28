@@ -1,7 +1,9 @@
+
+
 from application import app, db
 from flask import render_template, request, redirect, url_for
 from application.lists.models import Armylist
-
+from application.lists.forms import ListsForm
 
 @app.route("/lists", methods=["GET"])
 def lists_index():
@@ -9,7 +11,7 @@ def lists_index():
 
 @app.route("/lists/new/")
 def lists_form():
-	return render_template("lists/new.html")
+	return render_template("lists/new.html", form = ListsForm())
 
 @app.route("/lists/<list_id>/", methods=["POST"])
 def lists_set_done(list_id):
@@ -23,7 +25,14 @@ def lists_set_done(list_id):
 
 @app.route("/lists/", methods=["POST"])
 def lists_create():
-	l = Armylist(request.form.get("name"))
+	form = ListsForm(request.form)
+
+
+	if not form.validate():
+		return render_template("lists/new.html", form = form)
+
+	l = Armylist(form.name.data)
+	l.done = form.done.data	
 
 	db.session().add(l)
 	db.session().commit()
