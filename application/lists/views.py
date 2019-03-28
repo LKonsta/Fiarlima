@@ -1,7 +1,7 @@
-
+from flask import render_template, request, redirect, url_for
+from flask_login import login_required, current_user
 
 from application import app, db
-from flask import render_template, request, redirect, url_for
 from application.lists.models import Armylist
 from application.lists.forms import ListsForm
 
@@ -10,10 +10,12 @@ def lists_index():
 	return render_template("lists/list.html", lists = Armylist.query.all())
 
 @app.route("/lists/new/")
+@login_required
 def lists_form():
 	return render_template("lists/new.html", form = ListsForm())
 
 @app.route("/lists/<list_id>/", methods=["POST"])
+@login_required
 def lists_set_done(list_id):
 	
 	al = Armylist.query.get(list_id)
@@ -24,6 +26,7 @@ def lists_set_done(list_id):
 
 
 @app.route("/lists/", methods=["POST"])
+@login_required
 def lists_create():
 	form = ListsForm(request.form)
 
@@ -32,7 +35,8 @@ def lists_create():
 		return render_template("lists/new.html", form = form)
 
 	l = Armylist(form.name.data)
-	l.done = form.done.data	
+	l.done = form.done.data
+	l.account_id = current_user.id
 
 	db.session().add(l)
 	db.session().commit()
