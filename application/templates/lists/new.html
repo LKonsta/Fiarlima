@@ -5,6 +5,20 @@
 <table>
 	<tr>
 		<td>
+		Army
+		</td>
+		<td>
+			
+			{{ form.army_id }}
+			<select>
+			{% for army in armies %}
+			<option label="{{ coices }}"> {{ army.id }} = {{ army.name }} </option>
+			{% endfor %}
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
 		{{ form.name.label }}
 		</td>
 		<td>
@@ -16,6 +30,14 @@
 			<li>{{ error }}</li>
 			{% endfor %}
 			</ul>
+		</td>
+	</tr>
+	<tr>
+		<td>
+		{{ form.points.label }}
+		</td>
+		<td>
+		{{ form.points }}
 		</td>
 	</tr>
 	<tr>

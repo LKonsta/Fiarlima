@@ -3,9 +3,11 @@
 {% block body %} 
 <table>
 	<tr>
-		<th>Owner</th>
+		<th>Army</th>
 		<th>List</th>
-		<th>Done</th>
+		<th>Points</th>
+		<th>Legal</th>
+		<th>Owner</th>
 		<th>Date made</th>
 		<th></th>
 		
@@ -13,10 +15,23 @@
 
 	{% for list in lists %}
 	<tr>
-		<td>{{ list.account_id }}</td>
-		<td>{{ list.name }}</td>
-		<td>{{ list.done }}</td>
-		<td>{{ list.date_created }}</td>
+		{% for army in armies %}
+		{% if army.id == list.army_id %}
+		<td>| {{ army.tag }}</td>
+		{% endif %}
+		{% endfor %}
+
+		<td>| {{ list.name }}</td>
+                <td>| {{ list.points }}</td>
+                <td>| {{ list.done }}</td>
+
+		{% for user in account %}
+		{% if user.id == list.account_id %}
+		<td>| {{ user.name }}</td>
+		{% endif %}
+		{% endfor %}
+
+		<td>| {{ list.date_created }}</td>
 		<td>
 			<form method="POST" action="{{ url_for('lists_set_done', list_id=list.id) }}">
 				<input type="submit" value="Change to True!"/>
