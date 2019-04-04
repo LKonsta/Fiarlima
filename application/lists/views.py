@@ -17,7 +17,7 @@ def lists_form():
 @app.route("/lists/<list_id>/", methods=["POST"])
 @login_required
 def lists_set_done(list_id):
-	
+
 	al = Armylist.query.get(list_id)
 	al.done = True
 	db.session().commit()

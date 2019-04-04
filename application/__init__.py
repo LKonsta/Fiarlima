@@ -24,6 +24,8 @@ from application.lists import views
 from application.auth import models
 from application.auth import views
 
+from application.armydata import models
+from application.armydata import views
 
 # kirjautuminen
 from application.auth.models import User
