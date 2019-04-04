@@ -3,7 +3,7 @@
 {% block body %}
 <table>
 	<tr>
-		<th> </th>
+		<th></th>
 		<th>Army</th>
 		<th>Unit types</th>
 	</tr>
@@ -61,6 +61,7 @@
 <table>
 	<tr>
 		<th>Army</th>
+		<th>Unit type</th>
                 <th>Unit</th>
                 <th>pts</th>
                 <th>models</th>
@@ -76,6 +77,13 @@
                 <td>| {{ armytype.tag }}</td>
                 {% endif %}
                 {% endfor %}
+
+		{% for unittype in unittypedata %}
+                {% if unittype.id == unit.UnitType_id %}
+                <td>| {{ unittype.name }}</td>
+                {% endif %}
+                {% endfor %}
+
                 <td>| {{ unit.name }}</td>
                 <td>| {{ unit.start_cost }}</td>
                 <td>| {{ unit.start_number }}</td>
