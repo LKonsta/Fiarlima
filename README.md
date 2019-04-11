@@ -13,6 +13,10 @@ Link to planned [database diagram](../master/documentation/Fiarlima.pdf) and to 
 The site checks if the tables are empty when opening army data and if they are it fills them (currently only haves a demo of what it will look like).
 
 
+## Heroku does not allow to form the armydata because the server is overloaded
+
+looking in the armydata/models.py file you can see what it is supposed to fill it with. [Picture1](../master/documentation/armydata1.png)  [picture2](../master/documentation/armydata2.png) 
+
 ## Planned list
 
 + better interface
