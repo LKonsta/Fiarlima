@@ -40,26 +40,6 @@ class ArmyType(db.Model):
                 db.engine.execute(data)
                 data = text("INSERT INTO ArmyType (name, tag) VALUES ('Highborn Elves','HE');")
                 db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Infernal Dwarves','ID');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Kingdom of Equitaine','KoE');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Ogre Khans','OK');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Orcs and Goblins','OG');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Saurian Ancients','SA');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Sylvan Elves','SE');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('The Vermin Swarm','VS');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Undying Dynasties','UD');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Vampire Covenant','VC');")
-                db.engine.execute(data)
-                data = text("INSERT INTO ArmyType (name, tag) VALUES ('Warriors of the Dark Gods','WDK');")
-                db.engine.execute(data)
 
 
 class UnitType(db.Model):
@@ -165,15 +145,6 @@ class Unit(db.Model):
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
                         "VALUES ('Soothsayer', 1, 1, 155, 1, 1);")
                 db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Minotaur Warlord', 1, 1, 490, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Minotaur Chieftain', 1, 1, 220, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Centaur Chieftain', 1, 1, 220, 1, 1);")
-                db.engine.execute(data)
 
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
                         "VALUES ('Wildhorn Herd', 1, 17, 150, 10, 15, 50);")
@@ -191,39 +162,12 @@ class Unit(db.Model):
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
                         "VALUES ('Longhorn Herd', 1, 33, 155, 23, 10, 40);")
                 db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
-                        "VALUES ('Minotaurs', 1, 33, 235, 78, 3, 10);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
-                        "VALUES ('Centaurs', 1, 33, 165, 25, 5, 15);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
-                        "VALUES ('Riding Chariot', 1, 33, 110, 110, 1, 3);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
-                        "VALUES ('Razortusk Herd', 1, 33, 100, 62, 1, 10);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Razortusk Chariot', 1, 33, 230, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Briar Beast', 1, 33, 120, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, cost_per, start_number, max_amount)"
-                        "VALUES ('Gragoyles', 1, 33, 135, 17, 5, 10);")
-                db.engine.execute(data)
 
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
                         "VALUES ('Cyclops', 1, 49, 355, 1, 1);")
                 db.engine.execute(data)
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
                         "VALUES ('Gortach', 1, 49, 475, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Jabberwock', 1, 49, 340, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Beast Giant', 1, 49, 300, 1, 1);")
                 db.engine.execute(data)
 
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
@@ -234,20 +178,5 @@ class Unit(db.Model):
                 db.engine.execute(data)
                 data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
                         "VALUES ('Maw of Akaan', 2, 2, 565, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Miser of Sugulag', 2, 2, 670, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Courtesan of Cibaresh', 2, 2, 575, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Omen of Savar', 2, 2, 490, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Sentinel of Nukuja', 2, 2, 620, 1, 1);")
-                db.engine.execute(data)
-                data = text("INSERT INTO Unit (name, Army_id, UnitType_id, start_cost, start_number, max_amount)"
-                        "VALUES ('Vanadra´s Scourge', 2, 2, 705, 1, 1);")
                 db.engine.execute(data)
 
