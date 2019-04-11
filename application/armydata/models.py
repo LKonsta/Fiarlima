@@ -97,96 +97,12 @@ class UnitType(db.Model):
                 data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
                             "VALUES ('Characters',2,40);")
                 db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',3,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',4,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',5,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',6,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',7,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',8,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',9,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',10,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',11,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',12,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',13,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',14,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',15,40);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Characters',16,40);")
-                db.engine.execute(data)
 
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
+                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)"
                             "VALUES ('Core',1,20);")
                 db.engine.execute(data)
                 data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
                             "VALUES ('Core',2,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',3,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',4,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',5,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',6,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',7,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',8,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',9,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',10,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',11,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',12,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',13,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',14,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',15,25);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MinPoints)" 
-                            "VALUES ('Core',16,25);")
                 db.engine.execute(data)
 
                 data = text("INSERT INTO UnitType (name, ArmyType_id)" 
@@ -195,75 +111,12 @@ class UnitType(db.Model):
                 data = text("INSERT INTO UnitType (name, ArmyType_id)" 
                             "VALUES ('Special',2);")
                 db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',3);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',4);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',5);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',6);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',7);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',8);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',9);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',10);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',11);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',12);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',13);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',14);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',15);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id)" 
-                            "VALUES ('Special',16);")
-                db.engine.execute(data)
 
                 data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
                             "VALUES ('Terrors of the Wild',1, 40);")
                 db.engine.execute(data)
                 data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
                             "VALUES ('Ambush Predators',1, 60);")
-                db.engine.execute(data)
-
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Aves',2, 35);")
-                db.engine.execute(data)
-
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Raiders',3, 30);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Destroyers',3, 15);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('The Menagerie',3, 30);")
-                db.engine.execute(data)
-
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Clans` Thunder',4, 35);")
-                db.engine.execute(data)
-                data = text("INSERT INTO UnitType (name, ArmyType_id, MaxPoints)" 
-                            "VALUES ('Engines of War',4, 20);")
                 db.engine.execute(data)
 
 
