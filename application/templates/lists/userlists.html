@@ -1,0 +1,36 @@
+{% extends "layout.html"  %}
+
+{% block body %}
+<table>
+        <tr>
+                <th>Army</th>
+                <th>List</th>
+                <th>Points</th>
+                <th>Legal</th>
+                <th>Date made</th>
+                <th></th>
+
+        </tr>
+
+        {% for list in lists %}
+        <tr>
+                {% for army in armies %}
+                {% if army.id == list.army_id %}
+                <td>| {{ army.tag }}</td>
+                {% endif %}
+                {% endfor %}
+
+                <td>| {{ list.name }}</td>
+                <td>| {{ list.points }}</td>
+                <td>| {{ list.done }}</td>
+
+                <td>| {{ list.date_created }}</td>
+                <td>
+                        <form action="{{ url_for('lists_show_list', list_id=list.id) }}">
+                                <input type="submit" value="Show List"/>
+                        </form>
+                </td>
+        </tr>
+        {% endfor %}
+</talbe>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "layout.html"  %}
+
+{% block body %}
+<table>
+        <tr>
+                <th>Army</th>
+                <th>List</th>
+                <th>Points</th>
+                <th>Legal</th>
+                <th>Owner</th>
+                <th>Date made</th>
+                <th></th>
+
+        </tr>
+
+        {% for list in lists %}
+        <tr>
+                {% for army in armies %}
+                {% if army.id == list.army_id %}
+                <td>| {{ army.tag }}</td>
+                {% endif %}
+                {% endfor %}
+
+                <td>| {{ list.name }}</td>
+                <td>| {{ list.points }}</td>
+                <td>| {{ list.done }}</td>
+
+                {% for user in account %}
+                {% if user.id == list.account_id %}
+                <td>| {{ user.name }}</td>
+                {% endif %}
+                {% endfor %}
+
+                <td>| {{ list.date_created }}</td>
+        </tr>
+        {% endfor %}
+</table>
+<table>
+	<tr>
+		<th> Unit Type </th>
+		<th> unit name </th>
+		<th> Cost </th>
+		<th> Amount </th>
+	</tr>
+
+	{% for uil in unitsinlist %}
+	<tr>
+		{% for unitT in unittype %}
+		{% for unit in unit %}
+		{% if unit.id == uil.Unit_id %}	
+		{% if uniT.id == unit.id %}
+		<td> {{ uniT.name }} </td>
+		{% endif %}
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
+		
+
+	</tr>
+
+
+
+</talbe>	
+{% endblock %}
+

@@ -8,10 +8,9 @@ In the table top game for which this listing is made for there are 16 diffrent a
 
 Link to currently working [Heroku](https://fiarlima-python-demo.herokuapp.com/) version (unfortunately without the data from lists.db). 
 
-[Picture1](../master/documentation/armydata1.png) [Picture2](../master/documentation/armydata2.png)
-
 Link to planned [database diagram](../master/documentation/Fiarlima.pdf) and to [use cases](../master/documentation/UseCases.md) .
 
+The site checks if the tables are empty when opening army data and if they are it fills them (currently only haves a demo of what it will look like).
 
 
 ## Planned list
@@ -20,8 +19,8 @@ Link to planned [database diagram](../master/documentation/Fiarlima.pdf) and to 
 + able to choose an army type and make a list, and delete them
 + ~~army type, unit type and unit tables created~~
 + ~~SQL join type of a deal figured out between diffrent tables~~
-+ ability to create users (for now the heroku version is pretty useless)
-+ have the armydata tables filled when the program is opened
++ ~~ability to create users (for now the heroku version is pretty useless)~~
++ ~~have the armydata tables filled when the program is opened~~
 + ability to have 2 of the same units in the same army list
 + ...
 

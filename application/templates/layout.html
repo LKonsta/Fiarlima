@@ -12,9 +12,14 @@
 		</p>
 		{% else %}
 		<a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+		<a> </a>
+		<a href="{{ url_for('user_create') }}">Uusi käyttäjä </a>
 		{% endif %}
 		<ul>
-			<li><a href="{{ url_for('lists_index') }}">List lists</a></li>
+			<li><a href="{{ url_for('lists_index') }}">Show all lists</a></li>
+			{% if current_user.is_authenticated %}
+			<li><a href="{{ url_for('lists_user_lists') }}">Show my lists</a></li>
+			{% endif %}
 			<li><a href="{{ url_for('lists_form') }}">Add a list</a></li>
 			<li><a href="{{ url_for('armydata_index') }}">Show army data</a></li>
 		</ul>

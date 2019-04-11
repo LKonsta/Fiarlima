@@ -25,16 +25,17 @@
                 <td>| {{ list.points }}</td>
                 <td>| {{ list.done }}</td>
 
-		{% for user in account %}
-		{% if user.id == list.account_id %}
-		<td>| {{ user.name }}</td>
-		{% endif %}
-		{% endfor %}
+                {% for user in account %}
+                {% if user.id == list.account_id %}
+                <td>| {{ user.name }}</td>
+                {% endif %}
+                {% endfor %}
+
 
 		<td>| {{ list.date_created }}</td>
 		<td>
 			<form method="POST" action="{{ url_for('lists_set_done', list_id=list.id) }}">
-				<input type="submit" value="Change to True!"/>
+				<input type="submit" value="Show List"/>
 			</form>
 		</td>
 	</tr>

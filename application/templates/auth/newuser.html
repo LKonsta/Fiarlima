@@ -5,14 +5,33 @@
 <table>
         <tr>
                 <td>
-                 Work in Progress!
+                 {{ form.name.label }}
                 </td>
+		<td>
+		 {{ form.name }}
+		</td>
         </tr>
         <tr>
-                <td colspan="1">
-		 Currently you can only add new users trough sql commands
-                </td>
-        </tr>
+		<td>
+		 {{ form.username.label }}
+		</td>
+		<td>
+		 {{ form.username }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+		 {{ form.password.label }}
+		</td>
+		<td>
+		 {{ form.password }}
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
+			<input type="submit" value="Submit"/>
+		</td>
+	</tr>
 </form>
 {% endblock %}
 

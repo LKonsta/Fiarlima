@@ -4,14 +4,18 @@ from wtforms import SelectField, StringField, BooleanField, IntegerField, valida
 from application.armydata.models import ArmyType
 
 class ListsForm(FlaskForm):
-	list = []
-#	for army in ArmyType.query.all():
-#		list.append(army.id)
 
-	army_id = IntegerField()
+	army_id = SelectField("Army", choices=[])
 	name = StringField("List name", [validators.length(min=2)])
 	points = IntegerField("Points")
 	done = BooleanField("Done")
+
+	class Meta:
+		csrf = False
+
+
+class NewUnitForm(FlaskForm):
+	extraamount = IntegerField("Extra Amount")
 
 	class Meta:
 		csrf = False

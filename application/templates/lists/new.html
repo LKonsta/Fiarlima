@@ -5,19 +5,11 @@
 <table>
 	<tr>
 		<td>
-		Army
+		 {{ form.army_id.label }}
 		</td>
 		<td>
-			
-			{{ form.army_id }}
-			<select>
-			{% for army in armies %}
-			<option label="{{ coices }}"> {{ army.id }} = {{ army.name }} </option>
-			{% endfor %}
-			</select>
+		 {{ form.army_id }}
 		</td>
-	</tr>
-	<tr>
 		<td>
 		{{ form.name.label }}
 		</td>
@@ -31,16 +23,12 @@
 			{% endfor %}
 			</ul>
 		</td>
-	</tr>
-	<tr>
 		<td>
 		{{ form.points.label }}
 		</td>
 		<td>
 		{{ form.points }}
 		</td>
-	</tr>
-	<tr>
 		<td>
 		{{ form.done.label }}
 		</td>
@@ -52,8 +40,18 @@
 	</tr>
 	<tr>
 		<td colspan="3">
+			
+			<input type="button" onclick="{{ url_for('lists_newUnit') }}"  value="New unit"/>
+			
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3">
   			<input type="submit" value="Add a new list"/>
 		</td>
 	</tr>
 </form>
+{% endblock %}
+{% block newUnit %}
+
 {% endblock %}
