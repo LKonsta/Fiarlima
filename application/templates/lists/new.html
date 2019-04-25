@@ -5,10 +5,10 @@
 <table>
 	<tr>
 		<td>
-		 {{ form.army_id.label }}
+		 {{ form.army_type_id.label }}
 		</td>
 		<td>
-		 {{ form.army_id }}
+		 {{ form.army_type_id }}
 		</td>
 		<td>
 		{{ form.name.label }}
@@ -30,28 +30,13 @@
 		{{ form.points }}
 		</td>
 		<td>
-		{{ form.done.label }}
-		</td>
-		<td>
-		{{ form.done }}
-		</td>
-		<td>
 		</td>
 	</tr>
 	<tr>
 		<td colspan="3">
-			
-			<input type="button" onclick="{{ url_for('lists_newUnit') }}"  value="New unit"/>
-			
+  			<input type="submit" value="Confirm"/>
 		</td>
 	</tr>
-	<tr>
-		<td colspan="3">
-  			<input type="submit" value="Add a new list"/>
-		</td>
-	</tr>
+</table>
 </form>
-{% endblock %}
-{% block newUnit %}
-
 {% endblock %}

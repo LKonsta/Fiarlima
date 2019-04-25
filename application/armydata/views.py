@@ -17,5 +17,10 @@ def armydata_index():
 	if Unit.is_unit_empty() == 0:
 		Unit.unit_data_fill()
 
-	return render_template("armydata/army.html", armytypedata = ArmyType.query.order_by(ArmyType.name).all(), unittypedata = UnitType.query.order_by(UnitType.ArmyType_id).all(), unitdata = Unit.query.order_by(Unit.Army_id).all())
+	return render_template(
+		"armydata/army.html", 
+		armytypedata = ArmyType.query.order_by(ArmyType.name).all(), 
+		unittypedata = UnitType.query.order_by(UnitType.ArmyType_id).all(), 
+		unitdata = Unit.query.order_by(Unit.Army_id).all()
+	)
 

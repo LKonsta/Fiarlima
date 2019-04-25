@@ -8,12 +8,12 @@
 	<body>
 		{% if current_user.is_authenticated %}
 		<p>
-		Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}"> Krjaudu ulos</a>
+		Logged in as {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}"> Log out</a>
 		</p>
 		{% else %}
-		<a href="{{ url_for('auth_login') }}">Kirjaudu</a>
+		<a href="{{ url_for('auth_login') }}">Log in</a>
 		<a> </a>
-		<a href="{{ url_for('user_create') }}">Uusi käyttäjä </a>
+		<a href="{{ url_for('user_create') }}">New user</a>
 		{% endif %}
 		<ul>
 			<li><a href="{{ url_for('lists_index') }}">Show all lists</a></li>

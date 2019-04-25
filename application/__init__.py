@@ -44,8 +44,11 @@ login_manager.login_message = "Please login to use this functionality."
 def load_user(user_id):
 	return User.query.get(user_id)
 
+
+
 # luodaan tietokannat
 try:
 	db.create_all()
 except:
 	pass
+

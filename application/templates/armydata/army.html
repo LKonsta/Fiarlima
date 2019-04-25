@@ -3,7 +3,7 @@
 {% block body %}
 <table>
 	<tr>
-		<th></th>
+		<th>Tag</th>
 		<th>Army</th>
 		<th>Unit types</th>
 	</tr>
@@ -12,18 +12,14 @@
 	<tr>
 		<td>| {{ armytype.tag }}</td>
 		<td>| {{ armytype.name }}</td>
-		{% for unittype in unittypedata %}
-			{% if armytype.id == unittype.ArmyType_id %}
-				<td>{{ unittype.name }} , </td>
-			{% endif %}
+		
+		{% for unittype in armytype.unittypes %}
+		<td>{{ unittype.name }} , </td>
 		{% endfor %}
 		</td>
 	</tr>
 	{% endfor %}
 </table>
-	<tr>
-		<th> </th>
-	</tr>
 <table>
 
 	<tr>
@@ -35,11 +31,7 @@
 
 	{% for unittype in unittypedata %}
 	<tr>
-		{% for armytype in armytypedata %}
-		{% if armytype.id == unittype.ArmyType_id %}
-		<td>| {{ armytype.tag }}</td>
-		{% endif %}
-		{% endfor %}
+		<td>| {{ unittype.army_type.tag }}</td>
 		<td>| {{ unittype.name }}</td>
 		{% if unittype.MaxPoints != None %}
 		<td>| {{ unittype.MaxPoints }} % </td>
@@ -72,18 +64,8 @@
         {% for unit in unitdata %}
         <tr>
 		
-		{% for armytype in armytypedata %}
-                {% if armytype.id == unit.Army_id %}
-                <td>| {{ armytype.tag }}</td>
-                {% endif %}
-                {% endfor %}
-
-		{% for unittype in unittypedata %}
-                {% if unittype.id == unit.UnitType_id %}
-                <td>| {{ unittype.name }}</td>
-                {% endif %}
-                {% endfor %}
-
+                <td>| {{ unit.army_type.tag }}</td>
+		<td>| {{ unit.unit_type.name }}</td>
                 <td>| {{ unit.name }}</td>
                 <td>| {{ unit.start_cost }}</td>
                 <td>| {{ unit.start_number }}</td>

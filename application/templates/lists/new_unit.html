@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('list_add_confirm', list_id=list_id, unittype_id=unittype_id) }}">
+<table>
+	<tr>
+		<td>
+		{{ form.unit.label }}
+		</td>
+		<td>
+		{{ form.amount.label }}
+		</td>
+	</tr>
+	<tr>
+		<td>
+		{{ form.unit }}
+		</td>
+		<td>
+		{{ form.amount }}
+		</td>
+		<td>
+			<input type="submit" value="Add"/>
+		</td>
+	</tr>
+</table>
+</form>
+{% endblock %}

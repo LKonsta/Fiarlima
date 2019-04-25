@@ -9,7 +9,6 @@
                 <th>Legal</th>
                 <th>Owner</th>
                 <th>Date made</th>
-                <th></th>
 
         </tr>
         <tr>
@@ -27,29 +26,33 @@
 
 {% for ut in unittype %}
 <table>
-	<tr>
-		<th> {{ ut.name }} </th>
-	</tr>
+        <tr>
+                <th> {{ ut.name }} </th>
+        </tr>
+<table>
+</table>
+
+        {% for uil in unitsinlist %}
+        <tr>
+		{% if ut.id == uil.unit.UnitType_id %}
+                <td> | {{ uil.amount }} </td> 
+                <td> | {{ uil.unit.name }} </td>
+                <td> | {{ uil.Cost }} pts </td>
+		<form method="POST" action="{{ url_for('list_remove_unit', list_id=list.id, uil_id=uil.id) }}" >
+			<input type="submit" value="Remove"/>
+		</form>
+		</td>
+		{% endif %}
+        </tr>
+        {% endfor %}
 </table>
 <table>
-	{% for uil in unitsinlist %}
-	<tr>
-		{% if ut.id == uil.unit.UnitType_id %}		
-		<td> | {{ uil.amount }} </td>
-		<td> | {{ uil.unit.name }} </td>
-		<td> | {{ uil.Cost }} pts </td>
-		{% endif %}
-	</tr>
-	{% endfor %}
+<td>
+<a href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}" >
+	Add new
+</a>
+</td>
 </table>
 {% endfor %}
-{% if list.account_id == current_user.id %}
-<td>
-	<a href="{{ url_for('lists_edit', list_id=list.id) }}">
-		Edit list
-	</a>
-</td>
-{% endif %}
 
 {% endblock %}
-
