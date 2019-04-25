@@ -4,17 +4,18 @@ First what you want to do is create a new user in the top right corner
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_1.png" width="300">
 
-After or before you have created a new user, or if you are using this program for the first time what you want to do is press the Show army data ling to generate some Demo data to use.
+After or before you have created a new user, or if you are using this program for the first time what you want to do is press the Show army data link to generate some Demo data to use.
 
 After a little load it should look something like this.
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/armydata1.png" width="500">
 
-Now that we have some army data ready we want to create a new army list. This you can do by clicking on the Add a list link.
+Now that you have some army data ready you can create a new army list. This you can do by clicking on the Add a list link.
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_2.png" width="400">
 
 Now we have a select field from where you choose for which army you want to make the list for.
+
 (currently only beast herds has any units to choose from as it is the demo)
 
 Then you can insert a name for you list. And last the amount of points you want your list to be.
