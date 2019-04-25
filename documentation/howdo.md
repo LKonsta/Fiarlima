@@ -4,7 +4,7 @@ First what you want to do is create a new user in the top right corner
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_1.png" width="300">
 
-After or before you have created a new user if you are using this program for the first time what you want to do is press the Show army data ling to generate some Demo data to use.
+After or before you have created a new user, or if you are using this program for the first time what you want to do is press the Show army data ling to generate some Demo data to use.
 
 After a little load it should look something like this.
 
@@ -19,6 +19,7 @@ Now we have a select field from where you choose for which army you want to make
 
 Then you can insert a name for you list. And last the amount of points you want your list to be.
 In a normal game lists are around 3000-5000 points.
+
 (currently there are no limits on points and no checks if the lists are legal point wise, so it doesn't matter)
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_3.png" width="400">
@@ -42,7 +43,8 @@ Or Longhorn Herd you start with 10 and can choose up to 40.
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_6.png" width="400">  
 
 Or Briar Beast you start with 1 and that is the maximum.
-(currently there are no checks to see if the amount is withing thewanted values so it doesn, matter what is putted there)
+
+(currently there are no checks to see if the amount is within the wanted values so it doesn't, matter what is putted there)
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_7.png" width="400">
 
@@ -64,4 +66,5 @@ Now you can continue editing until you are satisfied with the list you have.
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_10.png" width="400">
 
 Here is an example of what a final army list would look like.
+
 (not taking consideration of the points that are not counted)
