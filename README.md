@@ -19,6 +19,16 @@ The site checks if the tables are empty when opening army data and if they are i
 
 looking in the armydata/models.py file you can see what it is supposed to fill it with. [Picture1](../master/documentation/armydata1.png)  [picture2](../master/documentation/armydata2.png) 
 
+## How to set up
+
+To initialize database use command
+
+<code>FLASK_APP=application flask init-db</code> 
+
+To start the app use command
+
+<code>python run.py</code>
+
 ## Planned list
 
 + better interface

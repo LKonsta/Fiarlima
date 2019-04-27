@@ -1,58 +1,75 @@
 {% extends "layout.html"  %}
 
 {% block body %}
-<table>
-        <tr>
-                <th>Army</th>
-                <th>List</th>
-                <th>Points</th>
-                <th>Legal</th>
-                <th>Owner</th>
-                <th>Date made</th>
+<h1 class="display-4"> Editing list: {{ list.name }}
+    <a class="btn btn-info" href="{{ url_for('lists_show_list', list_id=list.id) }}">
+        Show List
+    </a>
+    <form method="POST" action="{{ url_for('list_remove', list_id=list.id) }}" styles="display: inline;" style="display: inline;">
+        <input type="submit" class="btn btn-danger" value="Delete List"/>
+    </form>
+</h1>
+<h2>Army list information:</h2>
+<table class="table">
+    <tr>
+        <th>Army</th>
+        <th>List</th>
+        <th>Points</th>
+        <th>Legal</th>
+        <th>Owner</th>
+        <th>Date made</th>
 
-        </tr>
-        <tr>
-                <td>| {{ list.army_type.name }}</td>
+    </tr>
+    <tr>
+        <td> {{ list.army_type.name }}</td>
 
-                <td>| {{ list.name }}</td>
-                <td>| {{ list.points }}</td>
-                <td>| {{ list.done }}</td>
+        <td> {{ list.name }}</td>
+        <td class="{% if list.total_cost() > list.points %} text-danger {% endif %}"> {{ list.total_cost() }} / {{
+            list.points }}
+        </td>
+        <td> {{ list.legal() }}</td>
 
-                <td>| {{ list.account.name }}</td>
+        <td> {{ list.account.name }}</td>
 
-                <td>| {{ list.date_created }}</td>
-        </tr>
+        <td> {{ list.date_created }}</td>
+        <td>
+
+        </td>
+    </tr>
 </table>
-
+<h2>Unit information: </h2>
 {% for ut in unittype %}
-<table>
-        <tr>
-                <th> {{ ut.name }} </th>
-        </tr>
-<table>
+<h5>
+        <span> {{ ut.name }}</span>
+        <span class="text-secondary"> {{ list.cost_per_unit_type(ut.id) }} pts</span>
+        {% if not ut.MaxPoints == None or not ut.MinPoints == None%}
+        <span class="{% if not list.unit_type_of_army_precent_valid(ut)  %} text-danger {% else %} text-success {% endif %}">
+            {{ list.unit_type_precent_of_army(ut.id) }} % /
+            {% if ut.MaxPoints == None %}
+            {{ ut.MinPoints }} % Min
+            {% else %}
+            {{ ut.MaxPoints }} % Max
+            {% endif %}
+        </span>
+        {% endif %}
+</h5>
+<table class="table">
+    {% for uil in unitsinlist %}
+    {% if ut.id == uil.unit.UnitType_id %}
+    <tr>
+        <td> {{ uil.amount }}</td>
+        <td> {{ uil.unit.name }}</td>
+        <td> {{ uil.cost() }} pts</td>
+        <td>
+            <form method="POST" action="{{ url_for('list_remove_unit', list_id=list.id, uil_id=uil.id) }}">
+                <input type="submit" class="btn btn-danger" value="Remove"/>
+            </form>
+        </td>
+    </tr>
+    {% endif %}
+    {% endfor %}
 </table>
-
-        {% for uil in unitsinlist %}
-        <tr>
-		{% if ut.id == uil.unit.UnitType_id %}
-                <td> | {{ uil.amount }} </td> 
-                <td> | {{ uil.unit.name }} </td>
-                <td> | {{ uil.Cost }} pts </td>
-		<form method="POST" action="{{ url_for('list_remove_unit', list_id=list.id, uil_id=uil.id) }}" >
-			<input type="submit" value="Remove"/>
-		</form>
-		</td>
-		{% endif %}
-        </tr>
-        {% endfor %}
-</table>
-<table>
-<td>
-<a href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}" >
-	Add new
-</a>
-</td>
-</table>
+<a class="btn btn-info" href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}">Add new</a>
 {% endfor %}
 
 {% endblock %}

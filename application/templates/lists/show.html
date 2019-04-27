@@ -1,7 +1,13 @@
 {% extends "layout.html"  %}
 
 {% block body %}
-<table>
+<h1 class="display-4"> Showing list: {{ list.name }}
+    {% if list.account_id == current_user.id %}
+<a class="btn btn-info" href="{{ url_for('lists_edit', list_id=list.id) }}">Edit list</a>
+{% endif %}
+</h1>
+<h2> Army list information: </h2>
+<table class="table">
         <tr>
                 <th>Army</th>
                 <th>List</th>
@@ -13,42 +19,51 @@
 
         </tr>
         <tr>
-                <td>| {{ list.army_type.name }}</td>
+                <td>{{ list.army_type.name }}</td>
 
-                <td>| {{ list.name }}</td>
-                <td>| {{ list.points }}</td>
-                <td>| {{ list.done }}</td>
+                <td>{{ list.name }}</td>
+                <td class="{% if list.total_cost() > list.points %} text-danger {% endif %}"> {{ list.total_cost() }} /
+                    {{ list.points }}
+                </td>
+                <td>{{ list.legal() }}</td>
 
-                <td>| {{ list.account.name }}</td>
+                <td>{{ list.account.name }}</td>
 
-                <td>| {{ list.date_created }}</td>
+                <td>{{ list.date_created }}</td>
         </tr>
 </table>
-
+<h2> Unit information: </h2>
 {% for ut in unittype %}
-<table>
-	<tr>
-		<th> {{ ut.name }} </th>
-	</tr>
-</table>
-<table>
+<h5>
+        <span> {{ ut.name }}</span>
+</h5>
+<h6>
+        <span class="text-secondary"> {{ list.cost_per_unit_type(ut.id) }} pts</span>
+        {% if not ut.MaxPoints == None or not ut.MinPoints == None%}
+        <span class="{% if not list.unit_type_of_army_precent_valid(ut)  %} text-danger {% else %} text-success {% endif %}">
+            {{ list.unit_type_precent_of_army(ut.id) }} % /
+            {% if ut.MaxPoints == None %}
+            {{ ut.MinPoints }} % Min
+            {% else %}
+            {{ ut.MaxPoints }} % Max
+            {% endif %}
+        </span>
+        {% endif %}
+</h6>
+<table class="table">
 	{% for uil in unitsinlist %}
 	<tr>
 		{% if ut.id == uil.unit.UnitType_id %}		
-		<td> | {{ uil.amount }} </td>
-		<td> | {{ uil.unit.name }} </td>
-		<td> | {{ uil.Cost }} pts </td>
-		{% endif %}
+		<td> {{ uil.amount }} </td>
+		<td> {{ uil.unit.name }} </td>
+		<td> {{ uil.cost() }} pts </td>
+        {% endif %}
 	</tr>
 	{% endfor %}
 </table>
 {% endfor %}
 {% if list.account_id == current_user.id %}
-<td>
-	<a href="{{ url_for('lists_edit', list_id=list.id) }}">
-		Edit list
-	</a>
-</td>
+
 {% endif %}
 
 {% endblock %}

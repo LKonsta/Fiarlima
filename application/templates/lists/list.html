@@ -1,34 +1,33 @@
 {% extends "layout.html"  %}
 
-{% block body %} 
-<table>
-	<tr>
-		<th>Army</th>
-		<th>Name</th>
-		<th>Points</th>
-		<th>Owner</th>
-		<th>Date made</th>
-		<th></th>
-		
-	</tr>
+{% block body %}
+<h1 class="display-4"> All army lists: </h1>
+<table class="table">
+    <tr>
+        <th>Owner</th>
+        <th>Army</th>
+        <th>Name</th>
+        <th>Points</th>
+        <th>Legal</th>
+        <th>Date made</th>
+        <th></th>
 
-	{% for list in lists %}
-	<tr>
-		<td>| {{ list.army_type.tag }}</td>
+    </tr>
 
-		<td>| {{ list.name }}</td>
-                <td>| {{ list.points }}</td>
-
-                <td>| {{ list.account.name }}</td>
-
-
-		<td>| {{ list.date_created }}</td>
-		<td>
-			<a href="{{ url_for('lists_show_list', list_id=list.id) }}">
-				Show List
-			</a>
-		</td>
-	</tr>
-	{% endfor %}
-</talbe>
-{% endblock %}
+    {% for list in lists %}
+    <tr>
+        <td> {{ list.account.name }}</td>
+        <td> {{ list.army_type.tag }}</td>
+        <td> {{ list.name }}</td>
+        <td> {{ list.points }}</td>
+        <td> {{ list.legal() }}</td>
+        <td> {{ list.date_created }}</td>
+        <td>
+            <a class="btn btn-info" href="{{ url_for('lists_show_list', list_id=list.id) }}">
+                Show List
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </talbe>
+    {% endblock %}

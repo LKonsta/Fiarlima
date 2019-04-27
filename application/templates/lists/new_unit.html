@@ -1,8 +1,9 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<form method="POST" action="{{ url_for('list_add_confirm', list_id=list_id, unittype_id=unittype_id) }}">
-<table>
+<form method="POST" action="{{ url_for('list_add_unit', list_id=list_id, unittype_id=unittype_id) }}">
+<h6> Adding new unit</h6>
+	<table class="table">
 	<tr>
 		<td>
 		{{ form.unit.label }}
@@ -13,15 +14,20 @@
 	</tr>
 	<tr>
 		<td>
-		{{ form.unit }}
+		{{ form.unit(class_="form-control") }}
 		</td>
 		<td>
 		{{ form.amount }}
 		</td>
 		<td>
-			<input type="submit" value="Add"/>
+			<input type="submit" class="btn btn-info" value="Add"/>
 		</td>
 	</tr>
 </table>
+{% for field, errors in form.errors.items() %}
+<p class="alert aler-error">
+	{{ form[field].label }}: {{ ', '.join(errors) }}
+</p>
+{% endfor %}
 </form>
 {% endblock %}

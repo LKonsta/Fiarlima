@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField
 
+
 class ArmyTypeForm(FlaskForm):
 	name = StringField("Army name")
 	tag = StringField("Army tag")
@@ -16,6 +17,7 @@ class UnitTypeForm(FlaskForm):
 
 	class Meta:
 		csrf = False
+
 
 class UnitForm(FlaskForm):
 	name = StringField("Unit name")
