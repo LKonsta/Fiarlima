@@ -39,8 +39,10 @@
 </table>
 <h2>Unit information: </h2>
 {% for ut in unittype %}
-<h5>
+<h4>
         <span> {{ ut.name }}</span>
+    <a class="btn btn-info" href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}">Add new</a>
+    <h6>
         <span class="text-secondary"> {{ list.cost_per_unit_type(ut.id) }} pts</span>
         {% if not ut.MaxPoints == None or not ut.MinPoints == None%}
         <span class="{% if not list.unit_type_of_army_precent_valid(ut)  %} text-danger {% else %} text-success {% endif %}">
@@ -52,7 +54,8 @@
             {% endif %}
         </span>
         {% endif %}
-</h5>
+        </h6>
+</h4>
 <table class="table">
     {% for uil in unitsinlist %}
     {% if ut.id == uil.unit.UnitType_id %}
@@ -69,7 +72,7 @@
     {% endif %}
     {% endfor %}
 </table>
-<a class="btn btn-info" href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}">Add new</a>
-{% endfor %}
+    {% endfor %}
 
 {% endblock %}
+<a class="btn btn-info" href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}">Add new</a>

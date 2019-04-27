@@ -117,10 +117,10 @@ def lists_edit(list_id):
     army_list = Armylist.query.filter_by(id=list_id).first()
     if not current_user.id == army_list.account_id:
         abort(404)
-    army_id = army_list.id
+    army_id = army_list.army_type_id
     return render_template(
         "lists/edit.html",
-        list=Armylist.query.filter_by(id=list_id).first(),
+        list=army_list,
         unitsinlist=Unit_Armylist.query.filter_by(Armylist_id=list_id).all(),
         unittype=UnitType.query.filter_by(ArmyType_id=army_id).all()
     )
@@ -139,7 +139,7 @@ def list_add_unit(list_id, unittype_id):
     form.unit.choices = [
         (
             str(unit.id),
-            f"{unit.name} \n {unit.start_cost} pts "
+            f"{unit.name} | {unit.start_cost} pts "
             f"{'+' + str(unit.cost_per) + ' pts/per extra' if unit.cost_per else ''} | "
             f"{'single model' if unit.max_amount == 1 else 'amount: ' + str(unit.start_number) + '-' + str(unit.max_amount)}"
         ) for unit in unit_choices

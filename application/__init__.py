@@ -698,7 +698,7 @@ def init_db_test():
 					('Young Dragon', 290),
 					('Dragon', 460),
 					('Ancient Dragon', 660),
-				], [
+				], False, [
 					('Shield', 5),
 					('Heavy Armour', 15),
 					('Dragonforged Armour', 25),
@@ -723,7 +723,7 @@ def init_db_test():
 					('Giant Eagle', 60),
 					('Raver Chariot', 50),
 					('Griffon', 200),
-				], [
+				], False, [
 					('Battle Standard Bearer', 50),
 					('Shield', 5),
 					('Heavy Armour', 10),
@@ -747,66 +747,30 @@ def init_db_test():
 					('Griffon', 100),
 					('Young Dragon', 170),
 					('Dragon', 460),
-				], [
+				], False, [
 					('Wizard Master', 150),
 					('Light Armour', 5),
 				], None, None, None),
 			]),
 			('Core', None, 25, [
-				('Citizen Spears', 240, 16, 20, 50, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Highborn Lancers', 240, 40, 5, 15, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Citizen Archers', 170, 18, 10, 30, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Sea Guard', 300, 21, 15, 30, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Elein Reavers', 180, 25, 5, 10, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, [
+				('Citizen Spears', 240, 16, 20, 50, None, None, True, None, None, None, None),
+				('Highborn Lancers', 240, 40, 5, 15, None, None, True, None, None, None, None),
+				('Citizen Archers', 170, 18, 10, 30, None, None, True, None, None, None, None),
+				('Sea Guard', 300, 21, 15, 30, None, None, True, None, None, None, None),
+				('Elein Reavers', 180, 25, 5, 10, None, None, True, None, None, None, [
 					('Bow', 2)
 				]),
 			]),
 			('Special', None, None, [
-				('Sword Masters', 130, 23, 5, 30, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Lion Guard', 225, 28, 10, 30, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, [
+				('Sword Masters', 130, 23, 5, 30, None, None, True, None, None, None, None),
+				('Lion Guard', 225, 28, 10, 30, None, None, True, None, None, [
 					('Baleig Highlanders', 2),
 				], None),
-				('Flame Wardens', 360, 28, 15, 40, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Knights of Ryma', 340, 54, 5, 12, None, None, [
-					('Champion', 20),
-					('Musician', 20),
-					('Standard Bearer', 20),
-				], None, None, None),
-				('Reaver Chariot', 110, 100, 1, 4, ),
-				('Lion Chariot', 215, None, 1, 1),
-				('Giant Eagle', 100, 35, 1, 5),
+				('Flame Wardens', 360, 28, 15, 40, None, None, True, None, None, None, None),
+				('Knights of Ryma', 340, 54, 5, 12, None, None, True, None, None, None, None),
+				('Reaver Chariot', 110, 100, 1, 4, None, None, True, None, None, None, None),
+				('Lion Chariot', 215, None, 1, 1, None, None, False, None, None, None, None),
+				('Giant Eagle', 100, 35, 1, 5, None, None, False, None, None, None, None),
 			]),
 		]),
 	]
@@ -825,7 +789,7 @@ def init_db_test():
 			)
 			db.session.add(unit_type_data_to_insert)
 
-			for u_name, u_start_cost, u_cost_per, u_start_amount, u_max_amount, u_bloodline, u_mounts, u_update, u_unique, u_update_per, u_unique_per in ut_units:
+			for u_name, u_start_cost, u_cost_per, u_start_amount, u_max_amount, u_bloodlines, u_mounts, u_default_boolean, u_updates, u_uniques, u_update_per, u_unique_per in ut_units:
 				unit_data_to_insert = army_data_models.Unit(
 					army_type=data_to_insert,
 					unit_type=unit_type_data_to_insert,
@@ -833,8 +797,45 @@ def init_db_test():
 					start_cost=u_start_cost,
 					cost_per=u_cost_per,
 					start_number=u_start_amount,
-					max_amount=u_max_amount
+					max_amount=u_max_amount,
+					unit_default_updates=u_default_boolean
 				)
 				db.session.add(unit_data_to_insert)
+
+				if u_bloodlines:
+					for bl_name, bl_cost in u_bloodlines:
+						unit_bloodline_data_to_insert = army_data_models.UnitBloodlines(
+							unit=unit_data_to_insert,
+							name=bl_name,
+							cost=bl_cost
+						)
+						db.session.add(unit_bloodline_data_to_insert)
+
+				if u_mounts:
+					for mnt_name, mnt_cost in u_mounts:
+						unit_mount_data_to_insert = army_data_models.UnitMounts(
+							unit=unit_data_to_insert,
+							name=mnt_name,
+							cost=mnt_cost
+						)
+						db.session.add(unit_mount_data_to_insert)
+
+				if u_updates:
+					for upd_name, upd_cost in u_updates:
+						unit_update_data_to_insert = army_data_models.UnitUpdates(
+							unit=unit_data_to_insert,
+							name=upd_name,
+							cost=upd_cost
+						)
+						db.session.add(unit_update_data_to_insert)
+
+				if u_uniques:
+					for uniq_name, uniq_cost in u_uniques:
+						unit_unique_data_to_insert = army_data_models.UnitUniques(
+							unit=unit_data_to_insert,
+							name=uniq_name,
+							cost=uniq_cost
+						)
+						db.session.add(unit_unique_data_to_insert)
 
 	db.session.commit()

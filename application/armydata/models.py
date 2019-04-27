@@ -46,10 +46,53 @@ class Unit(db.Model):
     start_number = db.Column(db.Integer, nullable=False)
     max_amount = db.Column(db.Integer, nullable=False)
 
+    unit_default_updates = db.Column(db.Boolean, nullable=False)
+
+    bloodlines = db.relationship('UnitBloodlines', backref='unit', lazy=True)
+    mounts = db.relationship('UnitMounts', backref='unit', lazy=True)
+    updates = db.relationship('UnitUpdates', backref='unit', lazy=True)
+    uniques = db.relationship('UnitUniques', backref='unit', lazy=True)
+
+
+class UnitBloodlines(db.Model):
+    __tablename__ = "UnitBloodlines"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
+
+    name = db.Column(db.String(144), nullable=False)
+    cost = db.Column(db.Integer, nullable=False)
+
 
 class UnitMounts(db.Model):
     __tablename__ = "UnitMounts"
 
     id = db.Column(db.Integer, primary_key=True)
 
-    ()
+    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
+
+    name = db.Column(db.String(144), nullable=False)
+    cost = db.Column(db.Integer, nullable=False)
+
+
+class UnitUpdates(db.Model):
+    __tablename__ = "UnitUpdates"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
+
+    name = db.Column(db.String(144), nullable=False)
+    cost = db.Column(db.Integer, nullable=False)
+
+
+class UnitUniques(db.Model):
+    __tablename__ = "UnitUniques"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
+
+    name = db.Column(db.String(144), nullable=False)
+    cost = db.Column(db.Integer, nullable=False)
