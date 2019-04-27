@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, abort
 from flask_login import login_required, current_user
 from sqlalchemy.sql import text
 
@@ -39,8 +39,10 @@ def lists_show_list(list_id):
 @login_required
 def list_remove(list_id):
     list_id = list_id
-    list = Armylist.query.get(list_id)
-    db.session().delete(list)
+    army_list = Armylist.query.filter_by(id=list_id).first()
+    if not current_user.id == army_list.account_id:
+        abort(404)
+    db.session().delete(army_list)
     db.session().commit()
 
     return redirect(url_for("lists_index"))
@@ -74,6 +76,9 @@ def lists_form():
 @app.route("/lists/edit/<list_id>/<uil_id>", methods=["POST"])
 @login_required
 def list_remove_unit(list_id, uil_id):
+    army_list = Armylist.query.filter_by(id=list_id).first()
+    if not current_user.id == army_list.account_id:
+        abort(404)
     ual = Unit_Armylist.query.get(uil_id)
     db.session().delete(ual)
     db.session().commit()
@@ -109,7 +114,10 @@ def lists_create():
 @login_required
 def lists_edit(list_id):
     list_id = list_id
-    army_id = Armylist.query.filter_by(id=list_id).first().army_type_id
+    army_list = Armylist.query.filter_by(id=list_id).first()
+    if not current_user.id == army_list.account_id:
+        abort(404)
+    army_id = army_list.id
     return render_template(
         "lists/edit.html",
         list=Armylist.query.filter_by(id=list_id).first(),
@@ -121,6 +129,9 @@ def lists_edit(list_id):
 @app.route("/lists/edit/<list_id>/add/<unittype_id>", methods=["POST", "GET"])
 @login_required
 def list_add_unit(list_id, unittype_id):
+    army_list = Armylist.query.filter_by(id=list_id).first()
+    if not current_user.id == army_list.account_id:
+        abort(404)
     form = New_UnitForm(request.form)
     list_id = list_id
     unittype_id = unittype_id
@@ -128,7 +139,7 @@ def list_add_unit(list_id, unittype_id):
     form.unit.choices = [
         (
             str(unit.id),
-            f"{unit.name} | {unit.start_cost} pts "
+            f"{unit.name} \n {unit.start_cost} pts "
             f"{'+' + str(unit.cost_per) + ' pts/per extra' if unit.cost_per else ''} | "
             f"{'single model' if unit.max_amount == 1 else 'amount: ' + str(unit.start_number) + '-' + str(unit.max_amount)}"
         ) for unit in unit_choices

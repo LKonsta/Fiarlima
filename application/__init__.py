@@ -621,13 +621,30 @@ def init_db():
 				('Feldrak Ancestor', 685, None, 1, 1),
 			]),
 			('Core', None, 20, [
-#				('Warriors',)
+				('Warriors', 210, 24, 10, 25),
+				('Fallen', 150, 19, 5, 15),
+				('Barbarians', 130, 7, 15, 40),
 			]),
 			('Special', None, None, [
-
+				('Warrior Knights', 245, 44, 5, 10),
+				('Warrior Chariot', 225, None, 1, 1),
+				('Chosen', 265, 60, 5, 10),
+				('Chosen Knights', 435, 125, 3, 5),
+				('Chosen Chariot', 345, None, 1, 1),
+				('Forsworn', 180, 60, 3, 9),
+				('Wrecthed One', 105, 90, 1, 6),
+				('Battleshrine', 290, None, 1, 1),
+				('Flayers', 145, 19, 5, 10),
+				('Barbarian Horsemen', 135, 20, 5, 15),
+				('Warhounds', 90, 10, 5, 15),
+				('Chimera', 200, None, 1, 1),
+				('Feldraks', 340, 105, 3, 6),
 			]),
 			('Legendary Beasts', 35, None, [
-
+				('Hellmaw', 280, None, 1, 1),
+				('Forsaken One', 400, None, 1, 1),
+				('Marauding Giant', 260, None, 1, 1),
+				('Feldrak Elder', 430, None, 1, 1),
 			]),
 		])
 	]
@@ -646,6 +663,169 @@ def init_db():
 			db.session.add(unit_type_data_to_insert)
 
 			for u_name, u_start_cost, u_cost_per, u_start_amount, u_max_amount in ut_units:
+				unit_data_to_insert = army_data_models.Unit(
+					army_type=data_to_insert,
+					unit_type=unit_type_data_to_insert,
+					name=u_name,
+					start_cost=u_start_cost,
+					cost_per=u_cost_per,
+					start_number=u_start_amount,
+					max_amount=u_max_amount
+				)
+				db.session.add(unit_data_to_insert)
+
+	db.session.commit()
+
+@app.cli.command()
+def init_db_test():
+	db.create_all()
+
+	dummy_thicc_data = [
+		('Highborn Elves', 'HE', [
+			('Characters', 40, None, [
+				('High Prince', 250, None, 1, 1, [
+					('Master of Canreig Tower', 135),
+					('High Warden of the Flame', 105),
+					('Fleet Officer', 75),
+					('Royal Huntsman', 60),
+					('Queen´s Cavalier', 50),
+					('Queen´s Companion', 40),
+				], [
+					('Elven Horse', 60),
+					('Giant Eagle', 60),
+					('Raver Chariot', 60),
+					('Griffon', 200),
+					('Young Dragon', 290),
+					('Dragon', 460),
+					('Ancient Dragon', 660),
+				], [
+					('Shield', 5),
+					('Heavy Armour', 15),
+					('Dragonforged Armour', 25),
+					('Longbow', 5),
+				], [
+					('Light Lance', 5),
+					('Paired Weapons', 5),
+					('Spear', 5),
+					('Great Weapon', 15),
+					('Halberd', 15),
+					('Lance', 20),
+				], None, None),
+				('Commander', 150, None, 1, 1, [
+					('Master of Canreig Tower', 135),
+					('High Warden of the Flame', 105),
+					('Fleet Officer', 75),
+					('Royal Huntsman', 60),
+					('Queen´s Cavalier', 50),
+					('Queen´s Companion', 40),
+				], [
+					('Elven Horse', 50),
+					('Giant Eagle', 60),
+					('Raver Chariot', 50),
+					('Griffon', 200),
+				], [
+					('Battle Standard Bearer', 50),
+					('Shield', 5),
+					('Heavy Armour', 10),
+					('Dragonforged Armour', 20),
+					('Longbow', 5),
+				], [
+					('Light Lance', 5),
+					('Paired Weapons', 5),
+					('Spear', 5),
+					('Great Weapon', 10),
+					('Halberd', 10),
+					('Lance', 10),
+				], None, None),
+				('Mage', 225, None, 1, 1, [
+					('Asfad Scholar', 90),
+					('Order of the Fiery Heart', 30),
+				], [
+					('Elven Horse', 20),
+					('Giant Eagle', 25),
+					('Raver Chariot', 20),
+					('Griffon', 100),
+					('Young Dragon', 170),
+					('Dragon', 460),
+				], [
+					('Wizard Master', 150),
+					('Light Armour', 5),
+				], None, None, None),
+			]),
+			('Core', None, 25, [
+				('Citizen Spears', 240, 16, 20, 50, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Highborn Lancers', 240, 40, 5, 15, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Citizen Archers', 170, 18, 10, 30, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Sea Guard', 300, 21, 15, 30, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Elein Reavers', 180, 25, 5, 10, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, [
+					('Bow', 2)
+				]),
+			]),
+			('Special', None, None, [
+				('Sword Masters', 130, 23, 5, 30, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Lion Guard', 225, 28, 10, 30, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, [
+					('Baleig Highlanders', 2),
+				], None),
+				('Flame Wardens', 360, 28, 15, 40, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Knights of Ryma', 340, 54, 5, 12, None, None, [
+					('Champion', 20),
+					('Musician', 20),
+					('Standard Bearer', 20),
+				], None, None, None),
+				('Reaver Chariot', 110, 100, 1, 4, ),
+				('Lion Chariot', 215, None, 1, 1),
+				('Giant Eagle', 100, 35, 1, 5),
+			]),
+		]),
+	]
+
+
+	for d_name, d_tag, d_unittypes in dummy_thicc_data:
+		data_to_insert = army_data_models.ArmyType(name=d_name, tag=d_tag)
+		db.session.add(data_to_insert)
+
+		for ut_name, ut_max, ut_min, ut_units in d_unittypes:
+			unit_type_data_to_insert = army_data_models.UnitType(
+				name=ut_name,
+				army_type=data_to_insert,
+				MaxPoints=ut_max,
+				MinPoints=ut_min
+			)
+			db.session.add(unit_type_data_to_insert)
+
+			for u_name, u_start_cost, u_cost_per, u_start_amount, u_max_amount, u_bloodline, u_mounts, u_update, u_unique, u_update_per, u_unique_per in ut_units:
 				unit_data_to_insert = army_data_models.Unit(
 					army_type=data_to_insert,
 					unit_type=unit_type_data_to_insert,

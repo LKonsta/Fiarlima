@@ -2,32 +2,31 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('list_add_unit', list_id=list_id, unittype_id=unittype_id) }}">
-<h6> Adding new unit</h6>
-	<table class="table">
-	<tr>
-		<td>
-		{{ form.unit.label }}
-		</td>
-		<td>
-		{{ form.amount.label }}
-		</td>
-	</tr>
-	<tr>
-		<td>
-		{{ form.unit(class_="form-control") }}
-		</td>
-		<td>
-		{{ form.amount }}
-		</td>
-		<td>
-			<input type="submit" class="btn btn-info" value="Add"/>
-		</td>
-	</tr>
-</table>
-{% for field, errors in form.errors.items() %}
-<p class="alert aler-error">
-	{{ form[field].label }}: {{ ', '.join(errors) }}
-</p>
-{% endfor %}
+    <h3 class="display-4"> Adding new unit</h3>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            {{ form.unit.label }}
+            {{ form.unit(class_="form-control js-example-basic-single") }}
+        </div>
+        <div class="form-group col-md-4">
+            {{ form.amount.label }}
+            {{ form.amount(class_="form-control") }}
+        </div>
+        <div class="form-group col-md-1">
+            <label></label>
+            <input type="submit" class="btn btn-info form-control" value="Add"/>
+        </div>
+        <div class="form-group col-md-1">
+            <label></label>
+            <a class="btn btn-danger form-control" href="{{ url_for('lists_edit', list_id=list_id) }}">
+                Cancel
+            </a>
+        </div>
+    </div>
+    {% for field, errors in form.errors.items() %}
+    <p class="alert aler-error">
+        {{ form[field].label }}: {{ ', '.join(errors) }}
+    </p>
+    {% endfor %}
 </form>
 {% endblock %}
