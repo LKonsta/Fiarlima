@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField, IntegerField, RadioField, FieldList, BooleanField
 
 
 class ArmyTypeForm(FlaskForm):
@@ -28,3 +28,8 @@ class UnitForm(FlaskForm):
 
 	class Meta:
 		csrf = False
+
+
+class UpdateForm(FlaskForm):
+
+	update = FieldList(BooleanField('Updates', []))

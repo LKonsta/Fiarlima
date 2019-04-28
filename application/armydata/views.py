@@ -1,7 +1,7 @@
 from flask import render_template
 
 from application import app, db
-from application.armydata.models import ArmyType, UnitType, Unit
+from application.armydata.models import ArmyType, UnitType, Unit, UnitUpdates
 
 @app.route("/armydata", methods=["GET"])
 def armydata_index():
@@ -10,6 +10,7 @@ def armydata_index():
 		"armydata/army.html", 
 		armytypedata = ArmyType.query.order_by(ArmyType.name).all(), 
 		unittypedata = UnitType.query.order_by(UnitType.ArmyType_id).all(), 
-		unitdata = Unit.query.order_by(Unit.Army_id).all()
+		unitdata = Unit.query.order_by(Unit.Army_id).all(),
+		updatedata = UnitUpdates.query.order_by(UnitUpdates.id).all()
 	)
 

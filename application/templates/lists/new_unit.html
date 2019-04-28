@@ -12,7 +12,11 @@
         <div class="input-group md-3">
             {{ form.unit(class_="custom-select") }}
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Button</button>
+                <a href="{{ url_for('list_add_unit_updates',
+                list_id=list_id,
+                unittype_id=unittype_id,
+                unit_id=form.unit.data
+                ) }}" class="btn btn-outline-secondary" type="button">Confirm</a>
             </div>
         </div>
     </div>
@@ -39,5 +43,12 @@
         {{ form[field].label }}: {{ ', '.join(errors) }}
     </p>
     {% endfor %}
+    {% if unit_id %}
+    <div class="form-row">
+        <div>
+
+        </div>
+    </div>
+    {% endif %}
 </form>
 {% endblock %}

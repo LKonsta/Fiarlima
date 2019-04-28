@@ -682,43 +682,88 @@ def init_db_test():
 
 	dummy_thicc_data = [
 		('Highborn Elves', 'HE', [
+			('Elven Horse', None),
+			('Giant Eagle', None),
+			('Griffon', 6),
+			('Young Dragon', 6),
+			('Dragon', 6),
+			('Ancient Dragon', 6),
+			('Reaver Chariot', None),
+			('Lion Chariot', None),
+			('Sky Sloop', 5),
+		], [
+			('Master of Canreig Tower', 135, None),
+			('High Warden of the Flame', 105, None),
+			('Fleet Officer', 75, [
+				(None, 60, 1, 3, 2, None, None, None, None, None, None),
+				(None, 60, 2, 3, 2, None, None, None, None, None, None),
+				(None, 200, 1, 3, 3, None, None, None, None, None, None),
+				(None, 200, 2, 3, 3, None, None, None, None, None, None),
+				(None, 300, 1, 3, 9, None, None, None, None, None, None),
+				(None, 300, 2, 3, 9, None, None, None, None, None, None),
+			]),
+			('Royal Huntsman', 60, [
+				(None, 120, 1, 4, 8, None, None, None, None, None, None),
+				(None, 120, 2, 4, 8, None, None, None, None, None, None),
+			]),
+			('Queen´s Cavalier', 50, [
+				(None, 70, 1, 5, 1, None, None, None, None, None, None),
+				(None, 290, 1, 5, 4, None, None, None, None, None, None),
+				(None, 460, 1, 5, 5, None, None, None, None, None, None),
+				(None, 660, 1, 5, 6, None, None, None, None, None, None),
+				(None, 70, 2, 5, 1, None, None, None, None, None, None),
+				(None, 290, 2, 5, 4, None, None, None, None, None, None),
+				(None, 460, 2, 5, 5, None, None, None, None, None, None),
+			]),
+			('Queen´s Companion', 40, [
+				(None, 15, 1, 6, None, None, 1, None, None, None, None),
+				(None, 15, 1, 6, None, None, 1, None, None, None, None),
+				(None, 40, 2, 6, None, None, 1, None, None, None, None),
+				(None, 40, 2, 6, None, None, 1, None, None, None, None),
+			]),
+			('Asfad Scholar', 90, None),
+			('Order of the Fiery Heart', 30, [
+				(None, 330, 3, 7, 4, None, None, None, None, None, None),
+				(None, 540, 3, 7, 5, None, None, None, None, None, None),
+
+				('Shield', 5, 3, 7, None, None, 1, None, None, None, None),
+				('Heavy Armour', 15, 3, 7, None, None, 2, None, None, None, None),
+				('Dragonforged Armour', 30, 3, 7, None, None, 2, None, None, None, None),
+				('Paired Weapons', 5, 3, 7, None, None, 3, None, None, None, None),
+			]),
+		], [
 			('Characters', 40, None, [
-				('High Prince', 250, None, 1, 1, [
-					('Master of Canreig Tower', 135),
-					('High Warden of the Flame', 105),
-					('Fleet Officer', 75),
-					('Royal Huntsman', 60),
-					('Queen´s Cavalier', 50),
-					('Queen´s Companion', 40),
+				('High Prince', 250, None, 1, 1, False, [
+					(1, 2, 3, 4, 5)
 				], [
-					('Elven Horse', 60),
-					('Giant Eagle', 60),
-					('Raver Chariot', 60),
-					('Griffon', 200),
-					('Young Dragon', 290),
-					('Dragon', 460),
-					('Ancient Dragon', 660),
-				], False, [
-					('Shield', 5),
-					('Heavy Armour', 15),
-					('Dragonforged Armour', 25),
-					('Longbow', 5),
-				], [
-					('Light Lance', 5),
-					('Paired Weapons', 5),
-					('Spear', 5),
-					('Great Weapon', 15),
-					('Halberd', 15),
-					('Lance', 20),
-				], None, None),
-				('Commander', 150, None, 1, 1, [
-					('Master of Canreig Tower', 135),
-					('High Warden of the Flame', 105),
-					('Fleet Officer', 75),
-					('Royal Huntsman', 60),
-					('Queen´s Cavalier', 50),
-					('Queen´s Companion', 40),
-				], [
+					(None, 60, None, 1, None, None, None, None, None, None),
+					(None, 60, None, 2, None, None, None, None, None, None),
+					(None, 60, None, 7, None, None, None, None, None, None),
+					(None, 200, None, 3, None, None, None, None, None, None),
+					(None, 290, None, 4, None, None, None, None, None, None),
+					(None, 460, None, 5, None, None, None, None, None, None),
+					(None, 660, None, 6, None, None, None, None, None, None),
+
+					('Shield', 5, None, 1, None, None, None, None, None),
+					('Heavy Armour', 15, None, 2, None, None, None, None, None),
+					('Dragonforged Armour', 25, None, None, 2, None, None, None, None, None),
+					('Longbow', 5, None, None, 3, None, None, None, None, None),
+
+					('Light Lance', 5, None, False, 4, None, None, None),
+					('Paired Weapons', 5, None, False, 4, None, None, None),
+					('Spear', 5, None, False, 4, None, None, None),
+					('Great Weapon', 15, None, False, 4, None, None, None),
+					('Halberd', 15, None, False, 4, None, None, None),
+					('Lance', 20, None, False, 4, None, None, None),
+				]),
+				('Commander', 150, None, 1, 1, False, [
+					('Master of Canreig Tower', 135, 1, False, None, None, None, None),
+					('High Warden of the Flame', 105, 2, False, None, None, None, None),
+					('Fleet Officer', 75, 3, False, None, None, None, None),
+					('Royal Huntsman', 60, 4, False, None, None, None, None),
+					('Queen´s Cavalier', 50, 5, False, None, None, None, None),
+					('Queen´s Companion', 40, 6, False, None, None, None, None),
+
 					('Elven Horse', 50),
 					('Giant Eagle', 60),
 					('Raver Chariot', 50),
@@ -772,6 +817,17 @@ def init_db_test():
 				('Lion Chariot', 215, None, 1, 1, None, None, False, None, None, None, None),
 				('Giant Eagle', 100, 35, 1, 5, None, None, False, None, None, None, None),
 			]),
+			('Queen´s Bows', 30, None, [
+				('Queen´s Guard', 140, 29, 5, 20),
+				('Grey Watchers', 150, 26, 5, 10),
+			]),
+			('Naval Ordnance', 15, None, [
+				('Sea Guard Reaper', 180, None, 1, 1),
+				('Sky Sloop', 265, None, 1, 1),
+			]),
+			('Ancient Allies', 20, None, [
+				('Pheonix', 375, None, 1, 1),
+			]),
 		]),
 	]
 
@@ -802,40 +858,99 @@ def init_db_test():
 				)
 				db.session.add(unit_data_to_insert)
 
-				if u_bloodlines:
-					for bl_name, bl_cost in u_bloodlines:
-						unit_bloodline_data_to_insert = army_data_models.UnitBloodlines(
-							unit=unit_data_to_insert,
-							name=bl_name,
-							cost=bl_cost
-						)
-						db.session.add(unit_bloodline_data_to_insert)
 
-				if u_mounts:
-					for mnt_name, mnt_cost in u_mounts:
-						unit_mount_data_to_insert = army_data_models.UnitMounts(
-							unit=unit_data_to_insert,
-							name=mnt_name,
-							cost=mnt_cost
-						)
-						db.session.add(unit_mount_data_to_insert)
 
+	db.session.commit()
+
+@app.cli.command()
+def init_db_test2():
+	db.create_all()
+
+	data = ('Dwarven Holds', 'DH', [
+			('Characters', 40, None, [
+				('King', 225, None, 1, 1, False, [
+					('Holdstone', 250, False),
+					('Rune of Resonance', 50, False),
+					('Ancestral Memory', 60, False),
+					('Shield', 15, False),
+					('Pistol', 5, False),
+					('Guild-Crafted Handgun', 10, False),
+					('Crossbow', 10, False),
+					('Great Weapon', 20, False),
+					('Shield Bearers', 115, False),
+					('War Throne', 245, False),
+				]),
+				('Thane', 120, None, 1, 1, False, None),
+				('Dragon Seeker', 210, None, 1, 1, False, None),
+				('Runic Smith', 170, None, 1, 1, False, None),
+				('Engineer', 125, None, 1, 1, False, None),
+				('Anvil of Power', 185, None, 1, 1, False, None),
+			]),
+			('Core', None, 25, [
+				('Clan Warriors', 120, 13, 10, 40, False, None),
+				('Greybeards', 175, 20, 10, 30, False, None),
+				('Clan Marksmen', 200, 19, 10, 25, False, None),
+			]),
+			('Special', None, None, [
+				('Deep Watch', 310, 27, 15, 30, False, None),
+				('King´s Guard', 310, 27, 15, 30, False, None),
+				('Miners', 185, 16, 10, 20, False, None),
+				('Rangers', 140, 16, 8, 20, False, None),
+				('Seekers', 110, 21, 5, 25, False, None),
+				('Vengeance Seeker', 130, None, 1, 1, False, None),
+				('Hold Guardians', 280, 102, 3, 8, False, None),
+				('Grudge Buster', 350, None, 1, 1, False, None),
+			]),
+			('Clans´ Thunder', 35, None, [
+				('Forge Wardens', 220, 22, 10, 20, False, None),
+				('Attack Copter', 175, 130, 1, 2, False, None),
+				('Steam Bomber', 210, None, 1, 1, False, None),
+			]),
+			('Engines of War', 20, None, [
+				('Dwarf Ballista', 105, None, 1, 1, False, None),
+				('Flame Cannon', 150, None, 1, 1, False, None),
+				('Catapult', 210, None, 1, 1, False, None),
+				('Cannon', 255, None, 1, 1, False, None),
+				('Organ Gun', 270, None, 1, 1, False, None),
+			]),
+		]),
+
+	for d_name, d_tag, d_unittypes in data:
+		data_to_insert = army_data_models.ArmyType(
+			name=d_name,
+			tag=d_tag
+		)
+		db.session.add(data_to_insert)
+
+		for ut_name, ut_max, ut_min, ut_units in d_unittypes:
+			unit_type_data_to_insert = army_data_models.UnitType(
+				name=ut_name,
+				army_type=data_to_insert,
+				MaxPoints=ut_max,
+				MinPoints=ut_min
+			)
+			db.session.add(unit_type_data_to_insert)
+
+			for u_name, u_start_cost, u_cost_per, u_start_amount, u_max_amount, u_default_updates, u_updates in ut_units:
+				unit_data_to_insert = army_data_models.Unit(
+					army_type=data_to_insert,
+					unit_type=unit_type_data_to_insert,
+					name=u_name,
+					start_cost=u_start_cost,
+					cost_per=u_cost_per,
+					start_number=u_start_amount,
+					max_amount=u_max_amount,
+					default_updates=u_default_updates
+				)
+				db.session.add(unit_data_to_insert)
 				if u_updates:
-					for upd_name, upd_cost in u_updates:
-						unit_update_data_to_insert = army_data_models.UnitUpdates(
+					for upd_name, upd_cost, upd_per in u_updates:
+						update_data_to_insert = army_data_models.UnitUpdates(
 							unit=unit_data_to_insert,
 							name=upd_name,
-							cost=upd_cost
+							cost=upd_cost,
+							per=upd_per
 						)
-						db.session.add(unit_update_data_to_insert)
-
-				if u_uniques:
-					for uniq_name, uniq_cost in u_uniques:
-						unit_unique_data_to_insert = army_data_models.UnitUniques(
-							unit=unit_data_to_insert,
-							name=uniq_name,
-							cost=uniq_cost
-						)
-						db.session.add(unit_unique_data_to_insert)
+						db.session.add(update_data_to_insert)
 
 	db.session.commit()

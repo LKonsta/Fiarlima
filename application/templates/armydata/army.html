@@ -2,80 +2,95 @@
 
 {% block body %}
 <table class="table">
-	<tr>
-		<th>Tag</th>
-		<th>Army</th>
-		<th>Unit types</th>
-	</tr>
+    <tr>
+        <th>Tag</th>
+        <th>Army</th>
+        <th>Unit types</th>
+    </tr>
 
-	{% for armytype in armytypedata %}
-	<tr>
-		<td>{{ armytype.tag }}</td>
-		<td>{{ armytype.name }}</td>
-		<td>
-		{% for unittype in armytype.unittypes %}
-		{{ unittype.name }},
-		{% endfor %}
-		</td>
-	</tr>
-	{% endfor %}
+    {% for armytype in armytypedata %}
+    <tr>
+        <td>{{ armytype.tag }}</td>
+        <td>{{ armytype.name }}</td>
+        <td>
+            {% for unittype in armytype.unittypes %}
+            {{ unittype.name }},
+            {% endfor %}
+        </td>
+    </tr>
+    {% endfor %}
 </table>
 <table class="table">
-	<tr>
-		<th>Army</th>
-		<th>Unit type</th>
-		<th>Max</th>
-		<th>Min</th>
-	</tr>
+    <tr>
+        <th>Army</th>
+        <th>Unit type</th>
+        <th>Max</th>
+        <th>Min</th>
+    </tr>
 
-	{% for unittype in unittypedata %}
-	<tr>
-		<td>{{ unittype.army_type.tag }}</td>
-		<td>{{ unittype.name }}</td>
-		{% if unittype.MaxPoints != None %}
-		<td>{{ unittype.MaxPoints }} % </td>
-		{% else %}
-		<td> - </td>
-		{% endif %}
-		{% if unittype.MinPoints != None %}
-		<td>{{ unittype.MinPoints }} % </td>
-		{% else %}
-		<td> - </td>
-		{% endif %}
-	</tr>
-	{% endfor %}
+    {% for unittype in unittypedata %}
+    <tr>
+        <td>{{ unittype.army_type.tag }}</td>
+        <td>{{ unittype.name }}</td>
+        {% if unittype.MaxPoints != None %}
+        <td>{{ unittype.MaxPoints }} %</td>
+        {% else %}
+        <td> -</td>
+        {% endif %}
+        {% if unittype.MinPoints != None %}
+        <td>{{ unittype.MinPoints }} %</td>
+        {% else %}
+        <td> -</td>
+        {% endif %}
+    </tr>
+    {% endfor %}
 
 </table>
-	<tr>
-		<td>  </td>
-	</tr>
 <table class="table">
-	<tr>
-		<th>Army</th>
-		<th>Unit type</th>
-                <th>Unit</th>
-                <th>pts</th>
-                <th>models</th>
-		<th>pts/model</th>
-		<th>max models</th>
-        </tr>
+    <tr>
+        <th>Army</th>
+        <th>Unit type</th>
+        <th>Unit</th>
+        <th>pts</th>
+        <th>models</th>
+        <th>pts/model</th>
+        <th>max models</th>
+    </tr>
 
-        {% for unit in unitdata %}
-        <tr>
-		
-                <td>{{ unit.army_type.tag }}</td>
-		<td>{{ unit.unit_type.name }}</td>
-                <td>{{ unit.name }}</td>
-                <td>{{ unit.start_cost }}</td>
-                <td>{{ unit.start_number }}</td>
-		{% if unit.cost_per != None %}
-		<td>{{ unit.cost_per }}</td>
-		{% else %}
-		<td> - </td>
-		{% endif %}
-		<td>{{ unit.max_amount }}</td>
-        </tr>
-        {% endfor %}
+    {% for unit in unitdata %}
+    <tr>
 
+        <td>{{ unit.army_type.tag }}</td>
+        <td>{{ unit.unit_type.name }}</td>
+        <td>{{ unit.name }}</td>
+        <td>{{ unit.start_cost }}</td>
+        <td>{{ unit.start_number }}</td>
+        {% if unit.cost_per != None %}
+        <td>{{ unit.cost_per }}</td>
+        {% else %}
+        <td> -</td>
+        {% endif %}
+        <td>{{ unit.max_amount }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+<table class="table">
+    <tr>
+        <th>Army</th>
+        <th>Unit</th>
+        <th>Update</th>
+        <th>cost</th>
+        <th>/per</th>
+    </tr>
+    {% for update in updatedata %}
+    <tr>
+        <td>{{ update.unit.army_type.tag }}</td>
+        <td>{{ update.unit.name }}</td>
+        <td>{{ update.name }}</td>
+        <td>{{ update.cost }}</td>
+        <td>{{ update.per }}</td>
+    </tr>
+    {% endfor %}
 </table>
 {% endblock %}
