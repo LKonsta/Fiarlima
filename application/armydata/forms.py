@@ -32,4 +32,7 @@ class UnitForm(FlaskForm):
 
 class UpdateForm(FlaskForm):
 
-	update = FieldList(BooleanField('Updates', []))
+	updates = FieldList(BooleanField('null'))
+
+	class Meta:
+		csrf = False
