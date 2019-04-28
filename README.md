@@ -21,6 +21,20 @@ looking in the armydata/models.py file you can see what it is supposed to fill i
 
 ## How to set up
 
+First time setup
+
+1 . <code>python3 -m venv venv</code>
+
+2 . <code>source venv/bin/activate</code>
+
+3 . <code>pip install Flask</code>
+
+4 . <code>pip install flask-sqlalchemy</code>
+
+5 . <code>pip install flask-wtf</code>
+
+6 . <code>pip install flask-login</code>
+
 To initialize database use command
 
 <code>FLASK_APP=application flask init-db</code> 
