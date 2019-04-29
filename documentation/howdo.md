@@ -4,11 +4,13 @@ First what you want to do is create a new user in the top right corner
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_1.png" width="300">
 
-After or before you have created a new user, or if you are using this program for the first time what you want to do is press the Show army data link to generate some Demo data to use.
+If you havent loaded the databases, now is the time to do that. what you want to do is use the command 
 
-After a little load it should look something like this.
+<code>FLASK_APP=application flask ini-db-test2</code> 
 
-<img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/armydata1.png" width="500">
+to generate some Demo data.
+
+After a little load the army data should have some values.
 
 Now that you have some army data ready you can create a new army list. This you can do by clicking on the Add a list link.
 
@@ -16,12 +18,10 @@ Now that you have some army data ready you can create a new army list. This you 
 
 Now we have a select field from where you choose for which army you want to make the list for.
 
-(currently only beast herds has any units to choose from as it is the demo)
+(currently only beast herds and dwarven holds has any units to choose from as it is the demo)
 
 Then you can insert a name for you list. And last the amount of points you want your list to be.
 In a normal game lists are around 3000-5000 points.
-
-(currently there are no limits on points and no checks if the lists are legal point wise, so it doesn't matter)
 
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_3.png" width="400">
 
@@ -45,9 +45,15 @@ Or Longhorn Herd you start with 10 and can choose up to 40.
 
 Or Briar Beast you start with 1 and that is the maximum.
 
-(currently there are no checks to see if the amount is within the wanted values so it doesn't, matter what is putted there)
-
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_7.png" width="400">
+
+After this a Multiple select field opens where you can choose what updates to get for your unit.
+
+<img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_11.png" width="400">
+
+It works by pressing Ctrl button down and picking the ones you want.
+
+After you have chosen the good updates you need to press the final tab to confirm the adding of the unit to the list.
 
 Now that you have choosen a unit to add it is shown in the army list editing page.
 Now you have the ability to remove the unit or add new units.
@@ -67,5 +73,3 @@ Now you can continue editing until you are satisfied with the list you have.
 <img src="https://github.com/LKonsta/Fiarlima/blob/master/documentation/howtouse_10.png" width="400">
 
 Here is an example of what a final army list would look like.
-
-(not taking consideration of the points that are not counted)

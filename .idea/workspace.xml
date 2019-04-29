@@ -2,10 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a14fae-03f3-4927-8461-a432584a5414" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/lists/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/lists/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/armydata/army.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/armydata/army.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/templates/lists/new_unit.html" beforeDir="false" afterPath="$PROJECT_DIR$/application/templates/lists/new_unit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howdo.md" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howdo.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_10.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_7.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_8.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentation/howtouse_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_9.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,14 +22,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="565">
+            <state relative-caret-position="880">
               <caret line="951" column="5" lean-forward="true" selection-start-line="951" selection-start-column="5" selection-end-line="951" selection-end-column="5" />
               <folding>
                 <element signature="e#8#31#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="462">
+                <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/documentation/howdo.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="537">
+                <caret line="57" column="82" lean-forward="true" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -58,6 +89,7 @@
         <option value="$PROJECT_DIR$/application/templates/armydata/army.html" />
         <option value="$PROJECT_DIR$/application/lists/views.py" />
         <option value="$PROJECT_DIR$/application/__init__.py" />
+        <option value="$PROJECT_DIR$/documentation/howdo.md" />
       </list>
     </option>
   </component>
@@ -73,8 +105,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="63" />
-    <option name="y" value="140" />
+    <option name="x" value="62" />
+    <option name="y" value="94" />
     <option name="width" value="1746" />
     <option name="height" value="957" />
   </component>
@@ -94,39 +126,7 @@
             <path>
               <item name="demo" type="b2602c69:ProjectViewProjectNode" />
               <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="armydata" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="lists" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="armydata" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-              <item name="application" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="lists" type="462c0819:PsiDirectoryNode" />
+              <item name="documentation" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -166,7 +166,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="63" y="140" width="1746" height="957" extended-state="0" />
+    <frame x="62" y="94" width="1746" height="957" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10853163" />
@@ -283,14 +283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/documentation/howdo.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/templates/lists/list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -323,16 +315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="63" lean-forward="true" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="462">
-            <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -433,11 +415,31 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="565">
+        <state relative-caret-position="880">
           <caret line="951" column="5" lean-forward="true" selection-start-line="951" selection-start-column="5" selection-end-line="951" selection-end-column="5" />
           <folding>
             <element signature="e#8#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="462">
+            <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/documentation/howdo.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="537">
+            <caret line="57" column="82" lean-forward="true" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
