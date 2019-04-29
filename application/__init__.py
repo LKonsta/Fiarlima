@@ -81,7 +81,6 @@ def init_db():
 				('Razortusk Chariot', 230, None, 1, 1),
 				('Briar Beast', 120, None, 1, 1),
 				('Gargoyles', 135, 17, 5, 10),
-
 			]),
 			('Terrors of the Wild', 40, None, [
 				('Cyclops', 355, None, 1, 1),
@@ -676,191 +675,6 @@ def init_db():
 
 	db.session.commit()
 
-@app.cli.command()
-def init_db_test():
-	db.create_all()
-
-	dummy_thicc_data = [
-		('Highborn Elves', 'HE', [
-			('Elven Horse', None),
-			('Giant Eagle', None),
-			('Griffon', 6),
-			('Young Dragon', 6),
-			('Dragon', 6),
-			('Ancient Dragon', 6),
-			('Reaver Chariot', None),
-			('Lion Chariot', None),
-			('Sky Sloop', 5),
-		], [
-			('Master of Canreig Tower', 135, None),
-			('High Warden of the Flame', 105, None),
-			('Fleet Officer', 75, [
-				(None, 60, 1, 3, 2, None, None, None, None, None, None),
-				(None, 60, 2, 3, 2, None, None, None, None, None, None),
-				(None, 200, 1, 3, 3, None, None, None, None, None, None),
-				(None, 200, 2, 3, 3, None, None, None, None, None, None),
-				(None, 300, 1, 3, 9, None, None, None, None, None, None),
-				(None, 300, 2, 3, 9, None, None, None, None, None, None),
-			]),
-			('Royal Huntsman', 60, [
-				(None, 120, 1, 4, 8, None, None, None, None, None, None),
-				(None, 120, 2, 4, 8, None, None, None, None, None, None),
-			]),
-			('Queen´s Cavalier', 50, [
-				(None, 70, 1, 5, 1, None, None, None, None, None, None),
-				(None, 290, 1, 5, 4, None, None, None, None, None, None),
-				(None, 460, 1, 5, 5, None, None, None, None, None, None),
-				(None, 660, 1, 5, 6, None, None, None, None, None, None),
-				(None, 70, 2, 5, 1, None, None, None, None, None, None),
-				(None, 290, 2, 5, 4, None, None, None, None, None, None),
-				(None, 460, 2, 5, 5, None, None, None, None, None, None),
-			]),
-			('Queen´s Companion', 40, [
-				(None, 15, 1, 6, None, None, 1, None, None, None, None),
-				(None, 15, 1, 6, None, None, 1, None, None, None, None),
-				(None, 40, 2, 6, None, None, 1, None, None, None, None),
-				(None, 40, 2, 6, None, None, 1, None, None, None, None),
-			]),
-			('Asfad Scholar', 90, None),
-			('Order of the Fiery Heart', 30, [
-				(None, 330, 3, 7, 4, None, None, None, None, None, None),
-				(None, 540, 3, 7, 5, None, None, None, None, None, None),
-
-				('Shield', 5, 3, 7, None, None, 1, None, None, None, None),
-				('Heavy Armour', 15, 3, 7, None, None, 2, None, None, None, None),
-				('Dragonforged Armour', 30, 3, 7, None, None, 2, None, None, None, None),
-				('Paired Weapons', 5, 3, 7, None, None, 3, None, None, None, None),
-			]),
-		], [
-			('Characters', 40, None, [
-				('High Prince', 250, None, 1, 1, False, [
-					(1, 2, 3, 4, 5)
-				], [
-					(None, 60, None, 1, None, None, None, None, None, None),
-					(None, 60, None, 2, None, None, None, None, None, None),
-					(None, 60, None, 7, None, None, None, None, None, None),
-					(None, 200, None, 3, None, None, None, None, None, None),
-					(None, 290, None, 4, None, None, None, None, None, None),
-					(None, 460, None, 5, None, None, None, None, None, None),
-					(None, 660, None, 6, None, None, None, None, None, None),
-
-					('Shield', 5, None, 1, None, None, None, None, None),
-					('Heavy Armour', 15, None, 2, None, None, None, None, None),
-					('Dragonforged Armour', 25, None, None, 2, None, None, None, None, None),
-					('Longbow', 5, None, None, 3, None, None, None, None, None),
-
-					('Light Lance', 5, None, False, 4, None, None, None),
-					('Paired Weapons', 5, None, False, 4, None, None, None),
-					('Spear', 5, None, False, 4, None, None, None),
-					('Great Weapon', 15, None, False, 4, None, None, None),
-					('Halberd', 15, None, False, 4, None, None, None),
-					('Lance', 20, None, False, 4, None, None, None),
-				]),
-				('Commander', 150, None, 1, 1, False, [
-					('Master of Canreig Tower', 135, 1, False, None, None, None, None),
-					('High Warden of the Flame', 105, 2, False, None, None, None, None),
-					('Fleet Officer', 75, 3, False, None, None, None, None),
-					('Royal Huntsman', 60, 4, False, None, None, None, None),
-					('Queen´s Cavalier', 50, 5, False, None, None, None, None),
-					('Queen´s Companion', 40, 6, False, None, None, None, None),
-
-					('Elven Horse', 50),
-					('Giant Eagle', 60),
-					('Raver Chariot', 50),
-					('Griffon', 200),
-				], False, [
-					('Battle Standard Bearer', 50),
-					('Shield', 5),
-					('Heavy Armour', 10),
-					('Dragonforged Armour', 20),
-					('Longbow', 5),
-				], [
-					('Light Lance', 5),
-					('Paired Weapons', 5),
-					('Spear', 5),
-					('Great Weapon', 10),
-					('Halberd', 10),
-					('Lance', 10),
-				], None, None),
-				('Mage', 225, None, 1, 1, [
-					('Asfad Scholar', 90),
-					('Order of the Fiery Heart', 30),
-				], [
-					('Elven Horse', 20),
-					('Giant Eagle', 25),
-					('Raver Chariot', 20),
-					('Griffon', 100),
-					('Young Dragon', 170),
-					('Dragon', 460),
-				], False, [
-					('Wizard Master', 150),
-					('Light Armour', 5),
-				], None, None, None),
-			]),
-			('Core', None, 25, [
-				('Citizen Spears', 240, 16, 20, 50, None, None, True, None, None, None, None),
-				('Highborn Lancers', 240, 40, 5, 15, None, None, True, None, None, None, None),
-				('Citizen Archers', 170, 18, 10, 30, None, None, True, None, None, None, None),
-				('Sea Guard', 300, 21, 15, 30, None, None, True, None, None, None, None),
-				('Elein Reavers', 180, 25, 5, 10, None, None, True, None, None, None, [
-					('Bow', 2)
-				]),
-			]),
-			('Special', None, None, [
-				('Sword Masters', 130, 23, 5, 30, None, None, True, None, None, None, None),
-				('Lion Guard', 225, 28, 10, 30, None, None, True, None, None, [
-					('Baleig Highlanders', 2),
-				], None),
-				('Flame Wardens', 360, 28, 15, 40, None, None, True, None, None, None, None),
-				('Knights of Ryma', 340, 54, 5, 12, None, None, True, None, None, None, None),
-				('Reaver Chariot', 110, 100, 1, 4, None, None, True, None, None, None, None),
-				('Lion Chariot', 215, None, 1, 1, None, None, False, None, None, None, None),
-				('Giant Eagle', 100, 35, 1, 5, None, None, False, None, None, None, None),
-			]),
-			('Queen´s Bows', 30, None, [
-				('Queen´s Guard', 140, 29, 5, 20),
-				('Grey Watchers', 150, 26, 5, 10),
-			]),
-			('Naval Ordnance', 15, None, [
-				('Sea Guard Reaper', 180, None, 1, 1),
-				('Sky Sloop', 265, None, 1, 1),
-			]),
-			('Ancient Allies', 20, None, [
-				('Pheonix', 375, None, 1, 1),
-			]),
-		]),
-	]
-
-
-	for d_name, d_tag, d_unittypes in dummy_thicc_data:
-		data_to_insert = army_data_models.ArmyType(name=d_name, tag=d_tag)
-		db.session.add(data_to_insert)
-
-		for ut_name, ut_max, ut_min, ut_units in d_unittypes:
-			unit_type_data_to_insert = army_data_models.UnitType(
-				name=ut_name,
-				army_type=data_to_insert,
-				MaxPoints=ut_max,
-				MinPoints=ut_min
-			)
-			db.session.add(unit_type_data_to_insert)
-
-			for u_name, u_start_cost, u_cost_per, u_start_amount, u_max_amount, u_bloodlines, u_mounts, u_default_boolean, u_updates, u_uniques, u_update_per, u_unique_per in ut_units:
-				unit_data_to_insert = army_data_models.Unit(
-					army_type=data_to_insert,
-					unit_type=unit_type_data_to_insert,
-					name=u_name,
-					start_cost=u_start_cost,
-					cost_per=u_cost_per,
-					start_number=u_start_amount,
-					max_amount=u_max_amount,
-					unit_default_updates=u_default_boolean
-				)
-				db.session.add(unit_data_to_insert)
-
-
-
-	db.session.commit()
 
 @app.cli.command()
 def init_db_test2():
@@ -869,7 +683,7 @@ def init_db_test2():
 	data = ('Dwarven Holds', 'DH', [
 			('Characters', 40, None, [
 				('King', 225, None, 1, 1, False, [
-					('Holdstone', 250, False),
+					('Holdstone', 35, False),
 					('Rune of Resonance', 50, False),
 					('Ancestral Memory', 60, False),
 					('Shield', 15, False),
@@ -880,38 +694,114 @@ def init_db_test2():
 					('Shield Bearers', 115, False),
 					('War Throne', 245, False),
 				]),
-				('Thane', 120, None, 1, 1, False, None),
-				('Dragon Seeker', 210, None, 1, 1, False, None),
-				('Runic Smith', 170, None, 1, 1, False, None),
-				('Engineer', 125, None, 1, 1, False, None),
+				('Thane', 120, None, 1, 1, False, [
+					('Battle Standard Bearer', 50, False),
+					('Holdstone', 30, False),
+					('Rune of Resonance', 50, False),
+					('Ancestral Memory', 40, False),
+					('Shield', 10, False),
+					('Pistol', 5, False),
+					('Guild-Crafted Handgun', 10, False),
+					('Crossbow', 10, False),
+					('Great Weapon', 10, False),
+					('Shield Bearers', 95, False),
+				]),
+				('Dragon Seeker', 210, None, 1, 1, False, [
+					('Monster Seeker', 60, False),
+					('Grim Resolve', 80, False),
+				]),
+				('Runic Smith', 170, None, 1, 1, False, [
+					('Ancestral Memory', 45, False),
+					('Rune of Resonance', 50, False),
+					('Shield', 5, False),
+					('Great Weapon', 10, False),
+					('Battle Rune #1', 20, False),
+					('Battle Rune #2', 20, False),
+					('Battle Rune #3', 20, False),
+				]),
+				('Engineer', 125, None, 1, 1, False, [
+					('Ancestral Memory', 55, False),
+					('Rune of Resonance', 50, False),
+					('Shield', 5, False),
+					('Great Weapon', 5, False),
+					('Pistol', 5, False),
+					('Guild-Crafted Handgun', 5, False),
+					('Crossbow', 5, False),
+					('Forge Repeater', 20, False),
+					('Wyrn-Slayer Rocket', 30, False),
+				]),
 				('Anvil of Power', 185, None, 1, 1, False, None),
 			]),
 			('Core', None, 25, [
-				('Clan Warriors', 120, 13, 10, 40, False, None),
-				('Greybeards', 175, 20, 10, 30, False, None),
-				('Clan Marksmen', 200, 19, 10, 25, False, None),
+				('Clan Warriors', 120, 13, 10, 40, True, [
+					('Vanguard', 2, True),
+					('Shield', 2, True),
+					('Throwing Weapons', 2, True),
+					('Paired Weapons', 0, True),
+					('Spear & Shield', 3, True),
+					('Great Weapon', 3, True),
+				]),
+				('Greybeards', 175, 20, 10, 30, True, [
+					('Vanguard', 2, True),
+					('Shield', 2, True),
+					('Throwing Weapons', 4, True),
+					('Great Weapon', 4, True),
+				]),
+				('Clan Marksmen', 200, 19, 10, 25, True, [
+					('Great Weapon', 4, True),
+					('Guild-Crafted Handgun', 4, True),
+					('Shield', 2, True),
+				]),
 			]),
 			('Special', None, None, [
-				('Deep Watch', 310, 27, 15, 30, False, None),
-				('King´s Guard', 310, 27, 15, 30, False, None),
-				('Miners', 185, 16, 10, 20, False, None),
-				('Rangers', 140, 16, 8, 20, False, None),
-				('Seekers', 110, 21, 5, 25, False, None),
-				('Vengeance Seeker', 130, None, 1, 1, False, None),
-				('Hold Guardians', 280, 102, 3, 8, False, None),
-				('Grudge Buster', 350, None, 1, 1, False, None),
+				('Deep Watch', 310, 27, 15, 30, True, None),
+				('King´s Guard', 310, 27, 15, 30, True, None),
+				('Miners', 185, 16, 10, 20, False, [
+					('Place Holder', 250, False),
+				]),
+				('Rangers', 140, 16, 8, 20, False, [
+					('Place Holder', 250, False),
+				]),
+				('Seekers', 110, 21, 5, 25, False, [
+					('Place Holder', 250, False),
+				]),
+				('Vengeance Seeker', 130, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
+				('Hold Guardians', 280, 102, 3, 8, False, [
+					('Place Holder', 250, False),
+				]),
+				('Grudge Buster', 350, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
 			]),
 			('Clans´ Thunder', 35, None, [
-				('Forge Wardens', 220, 22, 10, 20, False, None),
-				('Attack Copter', 175, 130, 1, 2, False, None),
-				('Steam Bomber', 210, None, 1, 1, False, None),
+				('Forge Wardens', 220, 22, 10, 20, False, [
+					('Place Holder', 250, False),
+				]),
+				('Attack Copter', 175, 130, 1, 2, False, [
+					('Place Holder', 250, False),
+				]),
+				('Steam Bomber', 210, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
 			]),
 			('Engines of War', 20, None, [
-				('Dwarf Ballista', 105, None, 1, 1, False, None),
-				('Flame Cannon', 150, None, 1, 1, False, None),
-				('Catapult', 210, None, 1, 1, False, None),
-				('Cannon', 255, None, 1, 1, False, None),
-				('Organ Gun', 270, None, 1, 1, False, None),
+				('Dwarf Ballista', 105, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
+				('Flame Cannon', 150, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
+				('Catapult', 210, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
+				('Cannon', 255, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
+				('Organ Gun', 270, None, 1, 1, False, [
+					('Place Holder', 250, False),
+				]),
 			]),
 		]),
 

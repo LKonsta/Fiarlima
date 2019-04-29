@@ -28,7 +28,6 @@
                 <td>{{ list.legal() }}</td>
 
                 <td>{{ list.account.name }}</td>
-
                 <td>{{ list.date_created }}</td>
         </tr>
 </table>
@@ -56,15 +55,13 @@
 		{% if ut.id == uil.unit.UnitType_id %}		
 		<td> {{ uil.amount }} </td>
 		<td> {{ uil.unit.name }} </td>
+        <td> {{ uil.updates }} </td>
 		<td> {{ uil.cost() }} pts </td>
         {% endif %}
 	</tr>
 	{% endfor %}
 </table>
 {% endfor %}
-{% if list.account_id == current_user.id %}
-
-{% endif %}
 
 {% endblock %}
 

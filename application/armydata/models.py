@@ -46,9 +46,9 @@ class Unit(db.Model):
     start_number = db.Column(db.Integer, nullable=False)
     max_amount = db.Column(db.Integer, nullable=False)
 
-#    default_updates = db.Column(db.Boolean, nullable=False)
+    default_updates = db.Column(db.Boolean, nullable=False)
 
-#    updates = db.relationship('UnitUpdates', backref='unit', lazy=True)
+    updates = db.relationship('UnitUpdates', backref='unit', lazy=True)
 
 
 class UnitUpdates(db.Model):

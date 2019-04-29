@@ -16,6 +16,7 @@ class ListsForm(FlaskForm):
 class New_UnitForm(FlaskForm):
 	unit = SelectField("Unit",choices=[])
 	amount = IntegerField("Amount", [validators.Required()])
+	final = BooleanField('Final')
 
 	def validate(self):
 		super_validate = super().validate()

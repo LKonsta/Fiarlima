@@ -68,13 +68,12 @@ class Unit_Armylist(db.Model):
     Unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
     unit = db.relationship("Unit")
     amount = db.Column(db.Integer, nullable=False)
+    final_cost = db.Column(db.Integer, nullable=True)
+    updates = db.Column(db.Text, nullable=True)
 
     def __init__(self, Unit_id, amount):
         self.Unit_id = Unit_id
         self.amount = amount
 
     def cost(self):
-        if not self.unit.cost_per:
-            return self.unit.start_cost
-        extra = self.amount - self.unit.start_number
-        return self.unit.start_cost + self.unit.cost_per * extra
+        return self.final_cost

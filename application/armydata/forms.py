@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, RadioField, FieldList, BooleanField
+from wtforms import StringField, IntegerField, RadioField, FieldList, BooleanField, SelectMultipleField
 
 
 class ArmyTypeForm(FlaskForm):
@@ -31,8 +31,8 @@ class UnitForm(FlaskForm):
 
 
 class UpdateForm(FlaskForm):
-
-	updates = FieldList(BooleanField('null'))
+	u_choices = [('1', 'test')]
+	updates = SelectMultipleField("updates", choices=u_choices)
 
 	class Meta:
 		csrf = False
