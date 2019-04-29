@@ -56,7 +56,7 @@ class UnitUpdates(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
 
-    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
+    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=True)
 
     name = db.Column(db.String(144), nullable=False)
     cost = db.Column(db.Integer, nullable=False)

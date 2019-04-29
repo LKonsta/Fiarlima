@@ -150,7 +150,7 @@ def list_add_unit(list_id, unittype_id):
     ]
     if request.method == 'POST' and form.validate() and form.final.data:
         totalcost = 0
-        updates_string = ' '
+        updates_string = '                '
         extra = 1;
         this_unit = Unit.query.filter_by(id=form.unit.data).first()
         if not this_unit.cost_per:
@@ -180,11 +180,18 @@ def list_add_unit(list_id, unittype_id):
         nu = Unit_Armylist(form.unit.data, form.amount.data)
         nu.Armylist_id = list_id
 
+
         update_choices = UnitUpdates.query.filter_by(unit_id=form.unit.data).all()
-        update_form.updates.choices = [(
+        update_choise_list = [(
             str(upd.id),
             f"{upd.name} | {upd.cost} {'per/model' if upd.per else ''}"
         ) for upd in update_choices]
+        unit = Unit.query.filter_by(id=form.unit.data).first()
+        if unit.default_updates:
+            update_choise_list.append((str(1), 'Champion | 20'))
+            update_choise_list.append((str(2), 'Musician | 20'))
+            update_choise_list.append((str(3), 'Banner | 20'))
+        update_form.updates.choices = update_choise_list
 
         return render_template(
             'lists/new_unit.html',

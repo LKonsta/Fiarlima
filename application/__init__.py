@@ -680,6 +680,22 @@ def init_db():
 def init_db_test2():
 	db.create_all()
 
+	data_before = [
+		('Champion', 20, False),
+		('Musician', 20, False),
+		('Banner', 20, False),
+	]
+
+	for d_b_name, d_b_cost, d_b_per in data_before:
+		update_data_to_insert = army_data_models.UnitUpdates(
+			name=d_b_name,
+			cost=d_b_cost,
+			per=d_b_per
+		)
+		db.session.add(update_data_to_insert)
+
+	db.session.commit()
+
 	data = ('Dwarven Holds', 'DH', [
 			('Characters', 40, None, [
 				('King', 225, None, 1, 1, False, [
@@ -756,51 +772,54 @@ def init_db_test2():
 			('Special', None, None, [
 				('Deep Watch', 310, 27, 15, 30, True, None),
 				('King´s Guard', 310, 27, 15, 30, True, None),
-				('Miners', 185, 16, 10, 20, False, [
-					('Place Holder', 250, False),
+				('Miners', 185, 16, 10, 20, True, [
+					('Throwing Weapons', 4, True),
+					('Pistol', 4, True),
+					('Great Weapon', 3, True),
+					('Paired Weapons', 2, True),
+					('Shield', 2, True),
 				]),
-				('Rangers', 140, 16, 8, 20, False, [
-					('Place Holder', 250, False),
+				('Rangers', 140, 16, 8, 20, True, [
+					('Craig Warden', 2, True),
+					('Shield', 2, True),
+					('Throwing Weapons', 1, True),
+					('Crossbow', 4, True),
+					('Paired Weapons', 2, True),
+					('Great Weapon', 3, True),
 				]),
-				('Seekers', 110, 21, 5, 25, False, [
-					('Place Holder', 250, False),
+				('Seekers', 110, 21, 5, 25, True, [
+					('Vanguard', 3, True),
+					('Brothers of Vengeance', 2, True),
 				]),
-				('Vengeance Seeker', 130, None, 1, 1, False, [
-					('Place Holder', 250, False),
-				]),
-				('Hold Guardians', 280, 102, 3, 8, False, [
-					('Place Holder', 250, False),
-				]),
-				('Grudge Buster', 350, None, 1, 1, False, [
-					('Place Holder', 250, False),
-				]),
+				('Vengeance Seeker', 130, None, 1, 1, False, None),
+				('Hold Guardians', 280, 102, 3, 8, True, None),
+				('Grudge Buster', 350, None, 1, 1, False, None),
 			]),
 			('Clans´ Thunder', 35, None, [
-				('Forge Wardens', 220, 22, 10, 20, False, [
-					('Place Holder', 250, False),
-				]),
-				('Attack Copter', 175, 130, 1, 2, False, [
-					('Place Holder', 250, False),
-				]),
-				('Steam Bomber', 210, None, 1, 1, False, [
-					('Place Holder', 250, False),
-				]),
+				('Forge Wardens', 220, 22, 10, 20, True, None),
+				('Attack Copter', 175, 130, 1, 2, False, None),
+				('Steam Bomber', 210, None, 1, 1, False, None),
 			]),
 			('Engines of War', 20, None, [
 				('Dwarf Ballista', 105, None, 1, 1, False, [
-					('Place Holder', 250, False),
+					('Flaming Shot', 10, False),
+					('Rune Crafted', 40, False),
 				]),
 				('Flame Cannon', 150, None, 1, 1, False, [
-					('Place Holder', 250, False),
+					('Flaming Shot', 10, False),
+					('Rune Crafted', 20, False),
 				]),
 				('Catapult', 210, None, 1, 1, False, [
-					('Place Holder', 250, False),
+					('Flaming Shot', 10, False),
+					('Rune Crafted', 90, False),
 				]),
 				('Cannon', 255, None, 1, 1, False, [
-					('Place Holder', 250, False),
+					('Flaming Shot', 10, False),
+					('Rune Crafted', 30, False),
 				]),
 				('Organ Gun', 270, None, 1, 1, False, [
-					('Place Holder', 250, False),
+					('Flaming Shot', 10, False),
+					('Rune Crafted', 50, False),
 				]),
 			]),
 		]),
