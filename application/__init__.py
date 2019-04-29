@@ -55,7 +55,7 @@ def load_user(user_id):
 
 @app.cli.command()
 def drop_db():
-	db.drop_all()
+	db.drop_all(cascade="all, delete-orphan")
 
 @app.cli.command()
 def init_db():

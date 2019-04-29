@@ -34,3 +34,12 @@ class New_UnitForm(FlaskForm):
 
 	class Meta:
 		csrf = False
+
+
+
+class EditListForm(FlaskForm):
+	name = StringField("List name", [validators.length(min=2)])
+	points = IntegerField("Points")
+
+	class Meta:
+		csrf = False
