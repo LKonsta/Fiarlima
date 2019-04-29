@@ -696,7 +696,133 @@ def init_db_test2():
 
 	db.session.commit()
 
-	data = ('Dwarven Holds', 'DH', [
+	data = [
+		('Beast Herds', 'BH', [
+			('Characters', 40, None, [
+				('Beast Lord', 215, None, 1, 1, False, [
+					('Hunting Call (General Only)', 25, False),
+					('Shield', 5, False),
+					('Heavy Armour', 15, False),
+					('Throwing Weapons', 5, False),
+					('Paired Weapons', 10, False),
+					('Great Weapon', 20, False),
+					('Lance', 20, False),
+					('Beast Axe', 25, False),
+					('Raiding Chariot', 90, False),
+					('Razortusk Chariot', 125, False),
+				]),
+				('Beast Chieftain', 120, None, 1, 1, False, [
+					('Ambush', 10, False),
+					('Hunting Call (General Only)', 25, False),
+					('Battle Standard Bearer', 50, False),
+					('Greater Totem Bearer', 85, False),
+					('Shield', 5, False),
+					('Heavy Armour', 10, False),
+					('Throwing Weapons', 5, False),
+					('Paired Weapons', 15, False),
+					('Great Weapon', 10, False),
+					('Lance', 10, False),
+					('Beast Axe', 15, False),
+					('Raiding Chariot', 90, False),
+				]),
+				('Soothsayer', 155, None, 1, 1, False, [
+					('Wizard Adept', 75, False),
+					('Wizard Master', 225, False),
+					('Ambush', 10, False),
+					('Light Armour', 5, False),
+					('Paired Weapons', 5, False),
+					('Riding Chariot', 20, False),
+				]),
+				('Minotaur Warlord', 490, None, 1, 1, False, [
+					('Heavy Armour', 10, False),
+					('Shield', 10, False),
+					('Great Weapon', 15, False),
+					('Paired Weapon', 15, False),
+					('Beast Axe', 30, False),
+				]),
+				('Minotaur Chieftain', 220, None, 1, 1, False, [
+					('Battle Standard Bearer', 50, False),
+					('Greater Totem Bearer', 85, False),
+					('Heavy Armour', 10, False),
+					('Shield', 10, False),
+					('Paired Weapons', 10, False),
+					('Beast Axe', 20, False),
+					('Great Weapon', 20, False),
+				]),
+				('Centaur Chieftain', 220, None, 1, 1, False, [
+					('Ambush', 10, False),
+					('Battle Standard Bearer', 50, False),
+					('Greater Totem Bearer', 85, False),
+					('Heavy Armour', 10, False),
+					('Shield', 5, False),
+					('Throwing Weapons', 5, False),
+					('Paired Weapons', 10, False),
+					('Great Weapon', 20, False),
+					('Lance', 20, False),
+					('Beast Axe', 25, False),
+				]),
+			]),
+			('Core', None, 20, [
+				('Wildhorn Herd', 150, 10, 15, 50, True, [
+					('Ambush', 20, False),
+					('Paired Weapons', 2, True),
+					('Throwing Weapons', 2, True),
+					('Totem Bearer', 15, False),
+				]),
+				('Mongrel Herd', 140, 8, 20, 50, True, [
+					('Ambush', 20, False),
+					('Spear', 0, True),
+				]),
+				('Mongrel Raiders', 95, 7, 10, 20, False, [
+					('Ambush and Scout', 20, False),
+					('Champion', 20, False),
+					('Musician', 20, False),
+				]),
+			]),
+			('Special', None, None, [
+				('Feral Hounds', 80, 8, 5, 20, False, None),
+				('Longhorn Herd', 155, 23, 10, 40, True, [
+					('Ambush', 1, True),
+					('Great Weapons', 0, True),
+					('Totem Bearer', 15, False),
+				]),
+				('Minotaurs', 235, 78, 3, 10, True, [
+					('Shield', 6, True),
+					('Great Weapons', 10, True),
+					('Paired Weapons', 10, True),
+					('Totem Bearer', 15, False),
+				]),
+				('Centaurs', 165, 25, 5, 15, True, [
+					('Ambush (0-8)', 3, True),
+					('Throwing Weapons', 4, True),
+					('Great Weapons', 3, True),
+					('Paired Weapons', 4, True),
+					('Lance', 8, True),
+					('Totem Bearer', 15, False),
+				]),
+				('Riding Chariot', 110, 110, 1, 3, False, None),
+				('Razortusk Herd', 100, 62, 1, 10, False, None),
+				('Razortusk Chariot', 230, None, 1, 1, False, None),
+				('Briar Beast', 120, None, 1, 1, False, None),
+				('Gargoyles', 135, 17, 5, 10, False, [
+					('Scout', 15, False),
+				]),
+			]),
+			('Terrors of the Wild', 40, None, [
+				('Cyclops', 355, None, 1, 1, False, None),
+				('Goratch', 475, None, 1, 1, False, None),
+				('Jabberwock', 340, None, 1, 1, False, None),
+				('Beast Giant', 300, None, 1, 1, False, [
+					('Big Brother', 35, False),
+					('Uprooted Tree', 10, False),
+					('Beer Barrel', 20, False),
+					('Giant Club', 30, False),
+				]),
+			]),
+			('Ambush Predators', 60, None, [
+			])
+		]),
+		('Dwarven Holds', 'DH', [
 			('Characters', 40, None, [
 				('King', 225, None, 1, 1, False, [
 					('Holdstone', 35, False),
@@ -822,7 +948,8 @@ def init_db_test2():
 					('Rune Crafted', 50, False),
 				]),
 			]),
-		]),
+		])
+	]
 
 	for d_name, d_tag, d_unittypes in data:
 		data_to_insert = army_data_models.ArmyType(

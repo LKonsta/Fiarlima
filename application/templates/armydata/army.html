@@ -85,8 +85,13 @@
     </tr>
     {% for update in updatedata %}
     <tr>
+        {% if update.unit %}
         <td>{{ update.unit.army_type.tag }}</td>
         <td>{{ update.unit.name }}</td>
+        {% else %}
+        <td>All</td>
+        <td></td>
+        {% endif %}
         <td>{{ update.name }}</td>
         <td>{{ update.cost }}</td>
         <td>{{ update.per }}</td>

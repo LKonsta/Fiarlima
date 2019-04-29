@@ -162,7 +162,7 @@ def list_add_unit(list_id, unittype_id):
         for ans in update_form.updates.data:
             this_update = UnitUpdates.query.filter_by(id=ans).first()
             if this_update.per:
-                totalcost += this_update.cost * extra
+                totalcost += this_update.cost * form.amount.data
             else:
                 totalcost += this_update.cost
 
