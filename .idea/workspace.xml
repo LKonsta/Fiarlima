@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a14fae-03f3-4927-8461-a432584a5414" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/armydata/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/armydata/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/auth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/auth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/lists/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/lists/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +25,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="722" column="20" selection-start-line="722" selection-start-column="20" selection-end-line="722" selection-end-column="20" />
+            <state relative-caret-position="475">
+              <caret line="356" lean-forward="true" selection-start-line="356" selection-end-line="356" />
               <folding>
                 <element signature="e#8#31#0" expanded="true" />
               </folding>
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/lists/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-211">
-              <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+            <state relative-caret-position="210">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/lists/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1791">
-              <caret line="198" column="36" lean-forward="true" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
+            <state relative-caret-position="120">
+              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -123,16 +123,16 @@
         <option value="$PROJECT_DIR$/application/armydata/forms.py" />
         <option value="$PROJECT_DIR$/application/lists/forms.py" />
         <option value="$PROJECT_DIR$/application/templates/lists/show.html" />
-        <option value="$PROJECT_DIR$/application/lists/models.py" />
         <option value="$PROJECT_DIR$/application/armydata/models.py" />
         <option value="$PROJECT_DIR$/application/templates/lists/new_unit.html" />
         <option value="$PROJECT_DIR$/application/templates/armydata/army.html" />
         <option value="$PROJECT_DIR$/application/lists/views.py" />
-        <option value="$PROJECT_DIR$/application/__init__.py" />
         <option value="$PROJECT_DIR$/documentation/howdo.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/auth/views.py" />
         <option value="$PROJECT_DIR$/application/armydata/views.py" />
+        <option value="$PROJECT_DIR$/application/lists/models.py" />
+        <option value="$PROJECT_DIR$/application/__init__.py" />
       </list>
     </option>
   </component>
@@ -150,7 +150,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="90" />
     <option name="y" value="142" />
-    <option name="width" value="1221" />
+    <option name="width" value="1219" />
     <option name="height" value="957" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -240,10 +240,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="142" width="1221" height="957" extended-state="0" />
+    <frame x="90" y="142" width="1219" height="957" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1560935" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1560935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -262,7 +262,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10853163" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1560935" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -457,23 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/lists/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1791">
-          <caret line="198" column="36" lean-forward="true" selection-start-line="198" selection-start-column="36" selection-end-line="198" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/lists/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-211">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/armydata/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -508,10 +491,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/lists/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/lists/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="722" column="20" selection-start-line="722" selection-start-column="20" selection-end-line="722" selection-end-column="20" />
+        <state relative-caret-position="475">
+          <caret line="356" lean-forward="true" selection-start-line="356" selection-end-line="356" />
           <folding>
             <element signature="e#8#31#0" expanded="true" />
           </folding>
