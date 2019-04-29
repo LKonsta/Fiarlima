@@ -8,9 +8,9 @@ def armydata_index():
 
 	return render_template(
 		"armydata/army.html", 
-		armytypedata = ArmyType.query.order_by(ArmyType.name).all(), 
-		unittypedata = UnitType.query.order_by(UnitType.ArmyType_id).all(), 
-		unitdata = Unit.query.order_by(Unit.Army_id).all(),
-		updatedata = UnitUpdates.query.order_by(UnitUpdates.id).all()
+		armytypedata = ArmyType.query.all(),
+		unittypedata = UnitType.query.all(),
+		unitdata = Unit.query.all(),
+		updatedata = UnitUpdates.query.all()
 	)
 
