@@ -20,8 +20,6 @@ class Armylist(Base):
     )
 
     def total_cost(self):
-
-        db.engine.
         total = 0
         for unitlist in self.unitsinlist:
             total += unitlist.cost()

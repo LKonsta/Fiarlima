@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a14fae-03f3-4927-8461-a432584a5414" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/application/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/lists/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/lists/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,11 +21,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="356" lean-forward="true" selection-start-line="356" selection-end-line="356" />
+            <state relative-caret-position="1300">
+              <caret line="339" column="23" selection-start-line="339" selection-start-column="23" selection-end-line="339" selection-end-column="23" />
               <folding>
                 <element signature="e#8#31#0" expanded="true" />
               </folding>
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/lists/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            <state relative-caret-position="180">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -131,8 +130,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/auth/views.py" />
         <option value="$PROJECT_DIR$/application/armydata/views.py" />
-        <option value="$PROJECT_DIR$/application/lists/models.py" />
         <option value="$PROJECT_DIR$/application/__init__.py" />
+        <option value="$PROJECT_DIR$/application/lists/models.py" />
       </list>
     </option>
   </component>
@@ -498,22 +497,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/lists/models.py">
+    <entry file="file://$PROJECT_DIR$/application/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        <state relative-caret-position="1300">
+          <caret line="339" column="23" selection-start-line="339" selection-start-column="23" selection-end-line="339" selection-end-column="23" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#8#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/__init__.py">
+    <entry file="file://$PROJECT_DIR$/application/lists/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="356" lean-forward="true" selection-start-line="356" selection-end-line="356" />
+        <state relative-caret-position="180">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
           <folding>
-            <element signature="e#8#31#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
