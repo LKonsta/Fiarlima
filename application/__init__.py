@@ -43,11 +43,6 @@ login_manager.init_app(app)
 login_manager.login_view = "auth_login"
 login_manager.login_message = "Please login to use this functionality."
 
-try:
-	db.create_all()
-except:
-	pass
-
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -55,7 +50,7 @@ def load_user(user_id):
 
 @app.cli.command()
 def drop_db():
-	db.drop_all(cascade="all, delete-orphan")
+	db.drop_all()
 
 @app.cli.command()
 def init_db():
