@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58a14fae-03f3-4927-8461-a432584a5414" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/documentation/howdo.md" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howdo.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_10.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_3.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_4.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_5.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_6.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_7.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_8.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentation/howtouse_9.png" beforeDir="false" afterPath="$PROJECT_DIR$/documentation/howtouse_9.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,24 +25,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="462">
-                <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+              <first_editor relative-caret-position="345">
+                <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/documentation/howdo.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="537">
-                <caret line="57" column="82" lean-forward="true" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
+              <first_editor relative-caret-position="465">
+                <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
               </first_editor>
               <second_editor />
             </state>
@@ -79,7 +70,6 @@
         <option value="$PROJECT_DIR$/application/templates/layout.html" />
         <option value="$PROJECT_DIR$/application/templates/lists/edit.html" />
         <option value="$PROJECT_DIR$/application/armydata/views.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/armydata/forms.py" />
         <option value="$PROJECT_DIR$/application/lists/forms.py" />
         <option value="$PROJECT_DIR$/application/templates/lists/show.html" />
@@ -90,6 +80,7 @@
         <option value="$PROJECT_DIR$/application/lists/views.py" />
         <option value="$PROJECT_DIR$/application/__init__.py" />
         <option value="$PROJECT_DIR$/documentation/howdo.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -423,21 +414,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/documentation/howdo.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="462">
-            <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <first_editor relative-caret-position="465">
+            <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/documentation/howdo.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="537">
-            <caret line="57" column="82" lean-forward="true" selection-start-line="57" selection-start-column="82" selection-end-line="57" selection-end-column="82" />
+          <first_editor relative-caret-position="345">
+            <caret line="23" column="16" lean-forward="true" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
           </first_editor>
           <second_editor />
         </state>

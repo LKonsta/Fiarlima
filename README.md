@@ -19,6 +19,8 @@ The site checks if the tables are empty when opening army data and if they are i
 
 looking in the armydata/models.py file you can see what it is supposed to fill it with. [Picture1](../master/documentation/armydata1.png)  [picture2](../master/documentation/armydata2.png) 
 
+How to use [Tutorial](../master/documentation/howdo.md)
+
 ## How to set up
 
 First time setup
@@ -37,7 +39,7 @@ First time setup
 
 To initialize database use command
 
-<code>FLASK_APP=application flask init-db</code> 
+<code>FLASK_APP=application flask init-db-test2</code> 
 
 To drop the database if there is any problems use command
 
@@ -58,6 +60,6 @@ To start the app use command
 + ~~have the armydata tables filled when the program is opened~~
 + ~~ability to have 2 of the same units in the same army list~~
 + ~~working point counter and maximum point restrictions on diffrent unittype categories~~
-+ simple unit updates
++ ~~simple unit updates~~
 
 
