@@ -55,12 +55,13 @@ def user_name_edit(user_id):
 	form = EditNameForm(request.form)
 	user = User.query.get(user_id)
 
-	if request.method == "POST" and form.validate():
+	if request.method == 'POST' and form.validate():
 		user.name = form.name.data
 
 		db.session().commit()
 
 		return redirect(url_for("lists_index"))
+
 	form.name.data=user.name
 
 	return render_template(
