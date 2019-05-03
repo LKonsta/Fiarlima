@@ -23,10 +23,7 @@ class User(Base):
 				return f" {row[0]}"
 
 	def get_most_army_count(self):
-		sql_q = text(f"SELECT account.name, COUNT(1) AS count FROM Armylist "
-			f"JOIN account ON Armylist.account_id = account.id "
-			f"GROUP BY account.id "
-			f"ORDER BY count DESC;")
+		sql_q = text("SELECT account.name, COUNT(1) AS count FROM Armylist JOIN account ON Armylist.account_id = account.id GROUP BY account.id ORDER BY count DESC;")
 
 		ans = db.engine.execute(sql_q)
 		for row in ans:
@@ -34,9 +31,7 @@ class User(Base):
 				return txt
 
 	def get_total_army_list_count(self):
-		sql_q = text(f"SELECT COUNT(Armylist.account_id) AS count FROM account "
-			f"JOIN Armylist ON account.id = Armylist.account_id "
-			f"ORDER BY count;")
+		sql_q = text("SELECT COUNT(Armylist.account_id) AS count FROM account JOIN Armylist ON account.id = Armylist.account_id ORDER BY count;")
 		ans = db.engine.execute(sql_q)
 		for row in ans:
 			return row[0]
