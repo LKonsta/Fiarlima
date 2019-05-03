@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import PasswordField, StringField
 
 from application import db
+from sqlalchemy.sql import text
 
 class LoginForm(FlaskForm):
 	username = StringField("Username")
@@ -21,8 +22,7 @@ class NewUserForm(FlaskForm):
 			return False
 		bol = True
 		insert = self.name.data
-		sql_q = f"SELECT * FROM account " \
-			f"WHERE name = '{ insert }';"
+		sql_q = text(f"SELECT * FROM account WHERE name = '{ insert }';")
 		ans = db.engine.execute(sql_q)
 		for row in ans:
 			if not row[0] == None:
@@ -30,8 +30,7 @@ class NewUserForm(FlaskForm):
 				bol = False
 
 		insert2 = self.username.data
-		sql_q = f"SELECT * FROM account " \
-			f"WHERE username = '{insert2}';"
+		sql_q = text(f"SELECT * FROM account WHERE username = '{insert2}';")
 		ans = db.engine.execute(sql_q)
 		for row in ans:
 			if not row[0] == None:
@@ -55,8 +54,7 @@ class EditNameForm(FlaskForm):
 
 		bol = True
 		insert = self.name.data
-		sql_q = f"SELECT * FROM account " \
-			f"WHERE name = '{insert}';"
+		sql_q = text(f"SELECT * FROM account WHERE name = '{ insert }';")
 		ans = db.engine.execute(sql_q)
 		for row in ans:
 			if not row[0] == None:

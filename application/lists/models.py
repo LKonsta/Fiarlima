@@ -1,6 +1,7 @@
 from application import db
 from application.models import Base
 
+from sqlalchemy.sql import text
 
 class Armylist(Base):
     __tablename__ = "Armylist"
@@ -21,11 +22,11 @@ class Armylist(Base):
 
     def total_cost(self):
         al_id = self.id
-        sql_q = f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType " \
-            f"JOIN Unit ON UnitType.id = Unit.UnitType_id " \
-            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id " \
-            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id " \
-            f"WHERE Unit_Armylist.Armylist_id = {al_id};"
+        sql_q = text(f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType "
+            f"JOIN Unit ON UnitType.id = Unit.UnitType_id "
+            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id "
+            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id "
+            f"WHERE Unit_Armylist.Armylist_id = {al_id};")
         total = db.engine.execute(sql_q)
         for row in total:
             if not row[0]:
@@ -43,12 +44,12 @@ class Armylist(Base):
 
     def cost_per_unit_type(self, unittype_id):
         al_id = self.id
-        sql_q = f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType " \
-            f"JOIN Unit ON UnitType.id = Unit.UnitType_id " \
-            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id " \
-            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id " \
-            f"WHERE UnitType.id = {unittype_id} AND " \
-            f"Unit_Armylist.Armylist_id = {al_id};"
+        sql_q = text(f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType "
+            f"JOIN Unit ON UnitType.id = Unit.UnitType_id "
+            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id "
+            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id "
+            f"WHERE UnitType.id = {unittype_id} AND "
+            f"Unit_Armylist.Armylist_id = {al_id};")
         total = db.engine.execute(sql_q)
         for row in total:
             if not row[0]:

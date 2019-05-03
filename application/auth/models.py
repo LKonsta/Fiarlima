@@ -1,6 +1,8 @@
 from application import db
 from application.models import Base
 
+from sqlalchemy.sql import text
+
 class User(Base):
 
 	__tablename__ = "account"
@@ -12,7 +14,7 @@ class User(Base):
 	lists = db.relationship("Armylist", backref='account', lazy=True)
 
 	def get_total_user_count(self):
-		sql_q = f"SELECT COUNT(id) FROM account;"
+		sql_q = text("SELECT COUNT(id) FROM account;")
 		ans = db.engine.execute(sql_q)
 		for row in ans:
 			if row[0] == None:
@@ -21,10 +23,10 @@ class User(Base):
 				return f" {row[0]}"
 
 	def get_most_army_count(self):
-		sql_q = f"SELECT account.name, COUNT(1) AS count FROM Armylist " \
-			f"JOIN account ON Armylist.account_id = account.id " \
-			f"GROUP BY account.id " \
-			f"ORDER BY count DESC;"
+		sql_q = text(f"SELECT account.name, COUNT(1) AS count FROM Armylist "
+			f"JOIN account ON Armylist.account_id = account.id "
+			f"GROUP BY account.id "
+			f"ORDER BY count DESC;")
 
 		ans = db.engine.execute(sql_q)
 		for row in ans:
@@ -32,9 +34,9 @@ class User(Base):
 				return txt
 
 	def get_total_army_list_count(self):
-		sql_q = f"SELECT COUNT(Armylist.account_id) AS count FROM account " \
-			f"JOIN Armylist ON account.id = Armylist.account_id " \
-			f"ORDER BY count;"
+		sql_q = text(f"SELECT COUNT(Armylist.account_id) AS count FROM account "
+			f"JOIN Armylist ON account.id = Armylist.account_id "
+			f"ORDER BY count;")
 		ans = db.engine.execute(sql_q)
 		for row in ans:
 			return row[0]
