@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58a14fae-03f3-4927-8461-a432584a5414" name="Default Changelist" comment="" />
+    <list default="true" id="58a14fae-03f3-4927-8461-a432584a5414" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/application/auth/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/auth/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/lists/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/lists/models.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +35,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/auth/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/lists/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+            <state relative-caret-position="675">
+              <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -59,11 +74,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/lists/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
+            <state relative-caret-position="2135">
               <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
               <folding>
                 <element signature="e#0#68#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/auth/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -95,32 +119,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/lists/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
+            <state relative-caret-position="-70">
               <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/armydata/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/templates/lists/edit_unit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="10" lean-forward="true" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -166,21 +169,21 @@
         <option value="$PROJECT_DIR$/application/templates/lists/edit_unit.html" />
         <option value="$PROJECT_DIR$/documentation/UseCases.md" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/application/auth/forms.py" />
         <option value="$PROJECT_DIR$/application/lists/forms.py" />
         <option value="$PROJECT_DIR$/application/lists/views.py" />
         <option value="$PROJECT_DIR$/application/views.py" />
         <option value="$PROJECT_DIR$/application/armydata/models.py" />
         <option value="$PROJECT_DIR$/application/auth/models.py" />
         <option value="$PROJECT_DIR$/application/lists/models.py" />
+        <option value="$PROJECT_DIR$/application/auth/forms.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="222" />
-    <option name="y" value="58" />
+    <option name="x" value="97" />
+    <option name="y" value="136" />
     <option name="width" value="1575" />
-    <option name="height" value="979" />
+    <option name="height" value="828" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -289,7 +292,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="222" y="58" width="1575" height="979" extended-state="0" />
+    <frame x="97" y="136" width="1575" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.125" />
@@ -449,27 +452,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/auth/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/templates/armydata/army.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="30" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/auth/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -532,26 +518,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/lists/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/lists/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -579,6 +545,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/lists/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="45" column="58" lean-forward="true" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/lists/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-70">
+          <caret line="25" column="33" lean-forward="true" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/lists/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2135">
+          <caret line="263" lean-forward="true" selection-start-line="263" selection-end-line="263" />
+          <folding>
+            <element signature="e#0#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/auth/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="38" column="7" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/auth/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -589,12 +592,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/lists/models.py">
+    <entry file="file://$PROJECT_DIR$/application/auth/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="28" column="53" lean-forward="true" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+        <state relative-caret-position="200">
+          <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="34" selection-end-line="35" selection-end-column="34" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>

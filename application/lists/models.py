@@ -22,11 +22,9 @@ class Armylist(Base):
 
     def total_cost(self):
         al_id = self.id
-        sql_q = text(f"SELECT sum(unit_armylist.final_cost) FROM unittype "
-            f"JOIN unit ON unittype.id = unit.UnitType_id "
-            f"JOIN unit_armylist ON unit.id = unit_armylist.Unit_id "
-            f"JOIN armylist ON unit_armylist.Armylist_id = armylist.id "
-            f"WHERE unit_armylist.Armylist_id = {al_id}")
+        sql_q = text("SELECT sum(unit_armylist.final_cost) FROM unittype "
+            "JOIN unit ON unittype.id = unit.UnitType_id "
+            "JOIN unit_armylist ON unit.id = unit_armylist.Unit_id JOIN armylist ON unit_armylist.Armylist_id = armylist.id WHERE unit_armylist.Armylist_id = :al_id").params(al_id=al_id)
         total = db.engine.execute(sql_q)
         for row in total:
             if not row[0]:
@@ -44,12 +42,12 @@ class Armylist(Base):
 
     def cost_per_unit_type(self, unittype_id):
         al_id = self.id
-        sql_q = text(f"SELECT sum(unit_armylist.final_cost) FROM unittype "
-            f"JOIN unit ON unittype.id = unit.UnitType_id "
-            f"JOIN unit_armylist ON unit.id = unit_armylist.Unit_id "
-            f"JOIN armylist ON unit_armylist.Armylist_id = armylist.id "
-            f"WHERE unittype.id = {unittype_id} AND "
-            f"unit_armylist.Armylist_id = {al_id}")
+        sql_q = text("SELECT sum(unit_armylist.final_cost) FROM unittype "
+            "JOIN unit ON unittype.id = unit.UnitType_id "
+            "JOIN unit_armylist ON unit.id = unit_armylist.Unit_id "
+            "JOIN armylist ON unit_armylist.Armylist_id = armylist.id "
+            "WHERE unittype.id = :ut_id AND "
+            "unit_armylist.Armylist_id = :al_id").params(ut_id=unittype_id, al_id=al_id)
         total = db.engine.execute(sql_q)
         for row in total:
             if not row[0]:
