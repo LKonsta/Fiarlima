@@ -2,7 +2,7 @@ from application import db
 
 
 class ArmyType(db.Model):
-    __tablename__ = "ArmyType"
+    __tablename__ = "armytype"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -19,11 +19,11 @@ class ArmyType(db.Model):
 
 
 class UnitType(db.Model):
-    __tablename__ = "UnitType"
+    __tablename__ = "unittype"
 
     id = db.Column(db.Integer, primary_key=True)
 
-    ArmyType_id = db.Column(db.Integer, db.ForeignKey('ArmyType.id'), nullable=False)
+    ArmyType_id = db.Column(db.Integer, db.ForeignKey('armytype.id'), nullable=False)
 
     name = db.Column(db.String(144), nullable=False)
     MaxPoints = db.Column(db.Integer(), nullable=True)
@@ -33,12 +33,12 @@ class UnitType(db.Model):
 
 
 class Unit(db.Model):
-    __tablename__ = "Unit"
+    __tablename__ = "unit"
 
     id = db.Column(db.Integer, primary_key=True)
 
-    Army_id = db.Column(db.Integer, db.ForeignKey('ArmyType.id'), nullable=False)
-    UnitType_id = db.Column(db.Integer, db.ForeignKey('UnitType.id'), nullable=False)
+    Army_id = db.Column(db.Integer, db.ForeignKey('armytype.id'), nullable=False)
+    UnitType_id = db.Column(db.Integer, db.ForeignKey('unittype.id'), nullable=False)
 
     name = db.Column(db.String(144), nullable=False)
     start_cost = db.Column(db.Integer, nullable=False)
@@ -52,14 +52,14 @@ class Unit(db.Model):
 
 
 class UnitUpdates(db.Model):
-    __tablename__ = "UnitUpdates"
+    __tablename__ = "unitupdates"
 
     id = db.Column(db.Integer, primary_key=True)
 
-    unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=True)
+    unit_id = db.Column(db.Integer, db.ForeignKey('unit.id'), nullable=True)
 
     name = db.Column(db.String(144), nullable=False)
     cost = db.Column(db.Integer, nullable=False)
     per = db.Column(db.Boolean, nullable=True)
 
-    units = db.relationship("Unit_ArmylistUpdate", backref='update', lazy=True)
+    units = db.relationship("Unit_Armylistupdate", backref='update', lazy=True)

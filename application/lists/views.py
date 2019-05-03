@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 from sqlalchemy.sql import text
 
 from application import app, db
-from application.lists.models import Armylist, Unit_Armylist, Unit_ArmylistUpdate
+from application.lists.models import Armylist, Unit_Armylist, Unit_Armylistupdate
 from application.lists.forms import ListsForm, New_UnitForm, EditListForm, EditUnitForm
 
 from application.armydata.models import ArmyType, UnitType, Unit, UnitUpdates
@@ -169,7 +169,7 @@ def list_edit_unit(list_id, unittype_id, uil_id):
         nu.amount = request.form.get("amount")
         for deletes in nu.updates:
             db.session().delete(deletes)
-        this_unit = Unit.query.filter_by(id=nu.Unit_id).first()
+        this_unit = unit.query.filter_by(id=nu.Unit_id).first()
         if not this_unit.cost_per:
             totalcost = this_unit.start_cost
         else:
@@ -182,7 +182,7 @@ def list_edit_unit(list_id, unittype_id, uil_id):
                 totalcost += this_update.cost * int(nu.amount)
             else:
                 totalcost += this_update.cost
-            update_to_unit_in_list = Unit_ArmylistUpdate()
+            update_to_unit_in_list = Unit_Armylistupdate()
             update_to_unit_in_list.unit_in_army_list = nu
             update_to_unit_in_list.update = this_update
             db.session().add(update_to_unit_in_list)
@@ -245,7 +245,7 @@ def list_add_unit(list_id, unittype_id):
                 totalcost += this_update.cost * form.amount.data
             else:
                 totalcost += this_update.cost
-            update_to_unit_in_list = Unit_ArmylistUpdate()
+            update_to_unit_in_list = Unit_Armylistupdate()
             update_to_unit_in_list.unit_in_army_list = nu
             update_to_unit_in_list.update = this_update
             db.session().add(update_to_unit_in_list)

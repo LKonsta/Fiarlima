@@ -1,7 +1,7 @@
 from flask import render_template
 from application import app
 
-from application.lists.models import Armylist, Unit_Armylist, Unit_ArmylistUpdate
+from application.lists.models import Armylist, Unit_Armylist, Unit_Armylistupdate
 
 from application.armydata.models import ArmyType, UnitType, Unit, UnitUpdates
 

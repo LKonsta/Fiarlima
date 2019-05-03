@@ -48,7 +48,7 @@ class EditUnitForm(FlaskForm):
 		if not super_validate:
 			return False
 
-		unit = Unit.query.filter_by(id=self.unit_id).first()
+		unit = unit.query.filter_by(id=self.unit_id).first()
 		max = unit.max_amount
 		min = unit.start_number
 		if self.amount.data > max or self.amount.data < min:

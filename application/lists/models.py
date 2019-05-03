@@ -4,9 +4,9 @@ from application.models import Base
 from sqlalchemy.sql import text
 
 class Armylist(Base):
-    __tablename__ = "Armylist"
+    __tablename__ = "armylist"
 
-    army_type_id = db.Column(db.Integer, db.ForeignKey('ArmyType.id'), nullable=False)
+    army_type_id = db.Column(db.Integer, db.ForeignKey('armytype.id'), nullable=False)
     name = db.Column(db.String(144), nullable=False)
     points = db.Column(db.Integer, nullable=False)
     done = db.Column(db.Boolean, nullable=False)
@@ -15,18 +15,18 @@ class Armylist(Base):
 
     unitsinlist = db.relationship(
         'Unit_Armylist',
-        backref='Armylist',
+        backref='armylist',
         lazy=True,
         cascade="all, delete-orphan"
     )
 
     def total_cost(self):
         al_id = self.id
-        sql_q = text(f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType "
-            f"JOIN Unit ON UnitType.id = Unit.UnitType_id "
-            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id "
-            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id "
-            f"WHERE Unit_Armylist.Armylist_id = {al_id};")
+        sql_q = text(f"SELECT sum(unit_armylist.final_cost) FROM unittype "
+            f"JOIN unit ON unittype.id = unit.UnitType_id "
+            f"JOIN unit_armylist ON unit.id = unit_armylist.Unit_id "
+            f"JOIN armylist ON unit_armylist.Armylist_id = armylist.id "
+            f"WHERE unit_armylist.Armylist_id = {al_id}")
         total = db.engine.execute(sql_q)
         for row in total:
             if not row[0]:
@@ -44,12 +44,12 @@ class Armylist(Base):
 
     def cost_per_unit_type(self, unittype_id):
         al_id = self.id
-        sql_q = text(f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType "
-            f"JOIN Unit ON UnitType.id = Unit.UnitType_id "
-            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id "
-            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id "
-            f"WHERE UnitType.id = {unittype_id} AND "
-            f"Unit_Armylist.Armylist_id = {al_id};")
+        sql_q = text(f"SELECT sum(unit_armylist.final_cost) FROM unittype "
+            f"JOIN unit ON unittype.id = unit.UnitType_id "
+            f"JOIN unit_armylist ON unit.id = unit_armylist.Unit_id "
+            f"JOIN armylist ON unit_armylist.Armylist_id = armylist.id "
+            f"WHERE unittype.id = {unittype_id} AND "
+            f"unit_armylist.Armylist_id = {al_id}")
         total = db.engine.execute(sql_q)
         for row in total:
             if not row[0]:
@@ -78,16 +78,16 @@ class Armylist(Base):
 
 
 class Unit_Armylist(db.Model):
-    __tablename__ = "Unit_Armylist"
+    __tablename__ = "unit_armylist"
 
     id = db.Column(db.Integer, primary_key=True)
-    Armylist_id = db.Column(db.Integer, db.ForeignKey('Armylist.id'), nullable=False)
-    Unit_id = db.Column(db.Integer, db.ForeignKey('Unit.id'), nullable=False)
+    Armylist_id = db.Column(db.Integer, db.ForeignKey('armylist.id'), nullable=False)
+    Unit_id = db.Column(db.Integer, db.ForeignKey('unit.id'), nullable=False)
     unit = db.relationship("Unit")
     amount = db.Column(db.Integer, nullable=False)
     final_cost = db.Column(db.Integer, nullable=True)
     updates = db.relationship(
-        "Unit_ArmylistUpdate",
+        "Unit_Armylistupdate",
         backref='unit_in_army_list',
         lazy=True,
         cascade="all, delete-orphan"
@@ -101,8 +101,8 @@ class Unit_Armylist(db.Model):
         return self.final_cost
 
 
-class Unit_ArmylistUpdate(db.Model):
-    __tablename__ = "Unit_ArmylistUpdate"
+class Unit_Armylistupdate(db.Model):
+    __tablename__ = "unit_armylist_update"
 
-    unit_army_list_id = db.Column(db.Integer, db.ForeignKey('Unit_Armylist.id'), nullable=False, primary_key=True)
-    update_id = db.Column(db.Integer, db.ForeignKey('UnitUpdates.id'), nullable=False, primary_key=True)
+    unit_army_list_id = db.Column(db.Integer, db.ForeignKey('unit_armylist.id'), nullable=False, primary_key=True)
+    update_id = db.Column(db.Integer, db.ForeignKey('unitupdates.id'), nullable=False, primary_key=True)
