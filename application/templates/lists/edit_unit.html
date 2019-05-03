@@ -2,10 +2,17 @@
 
 {% block body %}
 <form method="POST" action="{{ url_for('list_edit_unit', list_id=list_id, unittype_id=unittype_id, uil_id=uil_id) }}">
-    <h3 class="display-4"> Editing unit</h3>
+    <h3 class="display-4"> Editing unit: {{ nu.unit.name }}</h3>
     <div class="form-row">
-        <div class="form-group col-md-2">
-            Unit: {{ nu.unit.name }}
+        <div class="form-group col-md-8">
+            <h4>Unit info: {{ nu.unit.start_cost }} pts
+            {% if nu.unit.max_amount == 1 %}
+            | single model
+            {% else %}
+            | + {{ nu.unit.cost_per }} per/model
+            | amount: {{ nu.unit.start_number }} - {{ nu.unit.max_amount }}
+            {% endif %}
+            </h4>
         </div>
     </div>
     <div class="form-row">
@@ -13,15 +20,15 @@
             {{ form.amount.label }}
             {{ form.amount(class_="form-control") }}
         </div>
-        <div class="form-group col-md-1">
-            {{ form.final.label }}
-            {{ form.final(class_="form-control") }}
-        </div>
     </div>
     <div class="form-row">
         <div class="form-group col-md-5">
             {{ form.updates.label }}
             {{ form.updates(class_="custom-select") }}
+        </div>
+        <div class="form-group col-md-1">
+            {{ form.final.label }}
+            {{ form.final(class_="form-control") }}
         </div>
     </div>
     <div class="form-row">

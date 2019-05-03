@@ -156,7 +156,7 @@ def list_edit_unit(list_id, unittype_id, uil_id):
     update_choices = UnitUpdates.query.filter_by(unit_id=nu.Unit_id).all()
     update_choise_list = [(
         str(upd.id),
-        f"{upd.name} | {upd.cost} {'per/model' if upd.per else ''}"
+        f"{upd.name} | {upd.cost} {'per/model' if upd.per else 'pts'}"
     ) for upd in update_choices]
     unit = Unit.query.filter_by(id=nu.Unit_id).first()
     if unit.default_updates:
@@ -265,7 +265,7 @@ def list_add_unit(list_id, unittype_id):
         update_choices = UnitUpdates.query.filter_by(unit_id=form.unit.data).all()
         update_choise_list = [(
             str(upd.id),
-            f"{upd.name} | {upd.cost} {'per/model' if upd.per else ''}"
+            f"{upd.name} | {upd.cost} {'per/model' if upd.per else 'pts'}"
         ) for upd in update_choices]
         unit = Unit.query.filter_by(id=form.unit.data).first()
         if unit.default_updates:

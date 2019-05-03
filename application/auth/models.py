@@ -21,14 +21,14 @@ class User(Base):
 				return f" {row[0]}"
 
 	def get_most_army_count(self):
-		sql_q = f"SELECT COUNT(Armylist.account_id) AS count, account.name AS name FROM account " \
-			f"JOIN Armylist ON account.id = Armylist.account_id " \
-			f"GROUP BY 'account.id'" \
-			f"ORDER BY count;"
+		sql_q = f"SELECT account.name, COUNT(1) AS count FROM Armylist " \
+			f"JOIN account ON Armylist.account_id = account.id " \
+			f"GROUP BY account.id " \
+			f"ORDER BY count DESC;"
 
 		ans = db.engine.execute(sql_q)
 		for row in ans:
-				txt = f" {row[1]} , with {row[0]} list(s)"
+				txt = f" {row[0]} , with {row[1]} list(s)"
 				return txt
 
 	def get_total_army_list_count(self):

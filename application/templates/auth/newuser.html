@@ -26,6 +26,11 @@
 			<input type="submit" class="btn btn-info" value="Submit"/>
 		</div>
 	</div>
+	{% for field, errors in form.errors.items() %}
+    <p class="alert aler-error">
+        {{ form[field].label }}: {{ ', '.join(errors) }}
+    </p>
+    {% endfor %}
 </form>
 {% endblock %}
 
