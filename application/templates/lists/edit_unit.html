@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<form method="POST" action="{{ url_for('list_edit_unit', list_id=list_id, unittype_id=unittype_id, uil_id=uil_id) }}">
+    <h3 class="display-4"> Editing unit</h3>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            Unit: {{ nu.unit.name }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            {{ form.amount.label }}
+            {{ form.amount(class_="form-control") }}
+        </div>
+        <div class="form-group col-md-1">
+            {{ form.final.label }}
+            {{ form.final(class_="form-control") }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            {{ form.updates.label }}
+            {{ form.updates(class_="custom-select") }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-2">
+            <label></label>
+            <input type="submit" class="btn btn-info form-control" value="Confirm"/>
+        </div>
+        <div class="form-group col-md-2">
+            <label></label>
+            <a class="btn btn-danger form-control" href="{{ url_for('lists_edit', list_id=list_id) }}">
+                Cancel
+            </a>
+        </div>
+    </div>
+    {% for field, errors in form.errors.items() %}
+    <p class="alert aler-error">
+        {{ form[field].label }}: {{ ', '.join(errors) }}
+    </p>
+    {% endfor %}
+
+
+</form>
+{% endblock %}

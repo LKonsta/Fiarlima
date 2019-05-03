@@ -61,3 +61,5 @@ class UnitUpdates(db.Model):
     name = db.Column(db.String(144), nullable=False)
     cost = db.Column(db.Integer, nullable=False)
     per = db.Column(db.Boolean, nullable=True)
+
+    units = db.relationship("Unit_ArmylistUpdate", backref='update', lazy=True)

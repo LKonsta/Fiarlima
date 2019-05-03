@@ -55,7 +55,11 @@
 		{% if ut.id == uil.unit.UnitType_id %}		
 		<td> {{ uil.amount }} </td>
 		<td> {{ uil.unit.name }} </td>
-        <td> {{ uil.updates }} </td>
+        <td>
+        {% for upds in uil.updates %}
+        {{ upds.update.name }}: {{ upds.update.cost }} pts |
+        {% endfor %}
+        </td>
 		<td> {{ uil.cost() }} pts </td>
         {% endif %}
 	</tr>

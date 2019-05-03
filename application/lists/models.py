@@ -20,10 +20,18 @@ class Armylist(Base):
     )
 
     def total_cost(self):
-        total = 0
-        for unitlist in self.unitsinlist:
-            total += unitlist.cost()
-        return total
+        al_id = self.id
+        sql_q = f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType " \
+            f"JOIN Unit ON UnitType.id = Unit.UnitType_id " \
+            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id " \
+            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id " \
+            f"WHERE Unit_Armylist.Armylist_id = {al_id};"
+        total = db.engine.execute(sql_q)
+        for row in total:
+            if not row[0]:
+                return 0
+            else:
+                return row[0]
 
     def legal(self):
         if self.total_cost() > self.points:
@@ -34,11 +42,19 @@ class Armylist(Base):
         return True
 
     def cost_per_unit_type(self, unittype_id):
-        total = 0;
-        for unitlist in self.unitsinlist:
-            if unitlist.unit.UnitType_id == unittype_id:
-                total += unitlist.cost()
-        return total
+        al_id = self.id
+        sql_q = f"SELECT sum(Unit_Armylist.final_cost) FROM UnitType " \
+            f"JOIN Unit ON UnitType.id = Unit.UnitType_id " \
+            f"JOIN Unit_Armylist ON Unit.id = Unit_Armylist.Unit_id " \
+            f"JOIN Armylist ON Unit_Armylist.Armylist_id = Armylist.id " \
+            f"WHERE UnitType.id = {unittype_id} AND " \
+            f"Unit_Armylist.Armylist_id = {al_id};"
+        total = db.engine.execute(sql_q)
+        for row in total:
+            if not row[0]:
+                return 0
+            else:
+                return row[0]
 
     def unit_type_precent_of_army(self, unittype_id):
         cost = self.cost_per_unit_type(unittype_id)
@@ -69,7 +85,12 @@ class Unit_Armylist(db.Model):
     unit = db.relationship("Unit")
     amount = db.Column(db.Integer, nullable=False)
     final_cost = db.Column(db.Integer, nullable=True)
-    updates = db.Column(db.Text, nullable=True)
+    updates = db.relationship(
+        "Unit_ArmylistUpdate",
+        backref='unit_in_army_list',
+        lazy=True,
+        cascade="all, delete-orphan"
+    )
 
     def __init__(self, Unit_id, amount):
         self.Unit_id = Unit_id
@@ -79,3 +100,8 @@ class Unit_Armylist(db.Model):
         return self.final_cost
 
 
+class Unit_ArmylistUpdate(db.Model):
+    __tablename__ = "Unit_ArmylistUpdate"
+
+    unit_army_list_id = db.Column(db.Integer, db.ForeignKey('Unit_Armylist.id'), nullable=False, primary_key=True)
+    update_id = db.Column(db.Integer, db.ForeignKey('UnitUpdates.id'), nullable=False, primary_key=True)

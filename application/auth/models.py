@@ -11,6 +11,34 @@ class User(Base):
 
 	lists = db.relationship("Armylist", backref='account', lazy=True)
 
+	def get_total_user_count(self):
+		sql_q = f"SELECT COUNT(id) FROM account;"
+		ans = db.engine.execute(sql_q)
+		for row in ans:
+			if row[0] == None:
+				return f" no users"
+			else:
+				return f" {row[0]}"
+
+	def get_most_army_count(self):
+		sql_q = f"SELECT COUNT(Armylist.account_id) AS count, account.name AS name FROM account " \
+			f"JOIN Armylist ON account.id = Armylist.account_id " \
+			f"GROUP BY 'account.id'" \
+			f"ORDER BY count;"
+
+		ans = db.engine.execute(sql_q)
+		for row in ans:
+				txt = f" {row[1]} , with {row[0]} list(s)"
+				return txt
+
+	def get_total_army_list_count(self):
+		sql_q = f"SELECT COUNT(Armylist.account_id) AS count FROM account " \
+			f"JOIN Armylist ON account.id = Armylist.account_id " \
+			f"ORDER BY count;"
+		ans = db.engine.execute(sql_q)
+		for row in ans:
+			return row[0]
+
 	def __init__(self, name, username, password):
 		self.name = name
 		self.username = username
@@ -27,3 +55,4 @@ class User(Base):
 
 	def is_authenticated(self):
 		return True
+

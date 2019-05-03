@@ -2,45 +2,46 @@
 
 {% block body %}
 <h1 class="display-4"> Editing list: {{ list.name }}
-    <a class="btn btn-info" href="{{ url_for('lists_show_list', list_id=list.id) }}">
-        Show List
-    </a>
-    <form method="POST" action="{{ url_for('list_remove', list_id=list.id) }}" styles="display: inline;" style="display: inline;">
-        <input type="submit" class="btn btn-danger" value="Delete List"/>
-    </form>
+
 </h1>
-<h2>Army list information:</h2>
-<table class="table">
-    <tr>
-        <th>Army</th>
-        <th>List</th>
-        <th>Points</th>
-        <th>Legal</th>
-        <th>Owner</th>
-        <th>Date made</th>
+<form method="POST" action="{{ url_for('list_remove', list_id=list.id) }}" styles="display: inline;"
+      style="display: inline;">
+    <input type="submit" class="btn btn-danger" value="Delete List"/>
+</form>
+<form method="POST" action="{{ url_for('lists_edit', list_id=list.id) }}" styles="display: inline;"
+      style="display: inline;">
+    <input type="submit" class="btn btn-info" value="Confirm Edits"/>
 
-    </tr>
-    <tr>
-        <td> {{ list.army_type.name }}</td>
 
-        <td> {{ list.name }}</td>
-        <td class="{% if list.total_cost() > list.points %} text-danger {% endif %}"> {{ list.total_cost() }} / {{
-            list.points }}
-        </td>
-        <td> {{ list.legal() }}</td>
+    <h2>Army list information:</h2>
+    <div class="table row">
+        <div class="col-sm-1">Army</div>
+        <div class="col-sm-3">List</div>
+        <div class="col-sm-2">Points</div>
+        <div class="col-sm-1">Legal</div>
+        <div class="col-sm-1">Owner</div>
+        <div class="col-sm-3">Date made</div>
 
-        <td> {{ list.account.name }}</td>
+    </div>
 
-        <td> {{ list.date_created }}</td>
-        <td>
 
-        </td>
-    </tr>
-</table>
+    <div class="table row">
+        <div class="col-sm-1"> {{ list.army_type.name }}</div>
+        <div class="col-sm-3"> {{ form.name(class_="form-control") }}</div>
+        <div class="col-sm-1" class="{% if list.total_cost() > list.points %} text-danger {% endif %}">
+            {{ list.total_cost() }} /
+        </div>
+        <div class="col-sm-1"> {{ form.points(class_="form-control") }}</div>
+        <div class="col-sm-1"> {{ list.legal() }}</div>
+        <div class="col-sm-1"> {{ list.account.name }}</div>
+        <div class="col-sm-2"> {{ list.date_created }}</div>
+
+    </div>
+</form>
 <h2>Unit information: </h2>
 {% for ut in unittype %}
 <h4>
-        <span> {{ ut.name }}</span>
+    <span> {{ ut.name }}</span>
     <a class="btn btn-info" href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}">Add new</a>
     <h6>
         <span class="text-secondary"> {{ list.cost_per_unit_type(ut.id) }} pts</span>
@@ -54,7 +55,7 @@
             {% endif %}
         </span>
         {% endif %}
-        </h6>
+    </h6>
 </h4>
 <table class="table">
     {% for uil in unitsinlist %}
@@ -62,7 +63,16 @@
     <tr>
         <td> {{ uil.amount }}</td>
         <td> {{ uil.unit.name }}</td>
+        <td> {{ uil.unit.Cost }}</td>
+        <td>
+        {% for upds in uil.updates %}
+        {{ upds.update.name }}: {{ upds.update.cost }} pts |
+        {% endfor %}
+        </td>
         <td> {{ uil.cost() }} pts</td>
+        <td>
+            <a class="btn btn-info" href="{{ url_for('list_edit_unit', list_id=list.id, unittype_id=ut.id, uil_id=uil.id) }}">Edit</a>
+        </td>
         <td>
             <form method="POST" action="{{ url_for('list_remove_unit', list_id=list.id, uil_id=uil.id) }}">
                 <input type="submit" class="btn btn-danger" value="Remove"/>
@@ -72,7 +82,7 @@
     {% endif %}
     {% endfor %}
 </table>
-    {% endfor %}
+{% endfor %}
 
 {% endblock %}
 <a class="btn btn-info" href="{{ url_for('list_add_unit', list_id=list.id, unittype_id=ut.id) }}">Add new</a>

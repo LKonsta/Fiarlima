@@ -3,8 +3,8 @@ from flask_login import login_required, current_user
 from sqlalchemy.sql import text
 
 from application import app, db
-from application.lists.models import Armylist, Unit_Armylist
-from application.lists.forms import ListsForm, New_UnitForm
+from application.lists.models import Armylist, Unit_Armylist, Unit_ArmylistUpdate
+from application.lists.forms import ListsForm, New_UnitForm, EditListForm, EditUnitForm
 
 from application.armydata.models import ArmyType, UnitType, Unit, UnitUpdates
 from application.armydata.forms import ArmyTypeForm, UnitTypeForm, UnitForm, UpdateForm
@@ -110,23 +110,102 @@ def lists_create():
     return redirect(url_for("lists_edit", list_id=l.id))
 
 
-@app.route("/lists/edit/<list_id>", methods=["GET"])
+@app.route("/lists/edit/<list_id>", methods=["GET", "POST"])
 @login_required
 def lists_edit(list_id):
     list_id = list_id
-    army_list = Armylist.query.filter_by(id=list_id).first()
+    army_list = Armylist.query.get(list_id)
     if not current_user.id == army_list.account_id:
         abort(404)
     army_id = army_list.army_type_id
+    form = EditListForm(request.form)
+    form.name.data = army_list.name
+    form.points.data = army_list.points
+
+    if request.method == "POST" and form.validate():
+        army_list.name = request.form.get("name")
+        army_list.points = request.form.get("points")
+
+        db.session().commit()
+
+        return redirect(url_for("lists_show_list", list_id=list_id))
+
     return render_template(
         "lists/edit.html",
         list=army_list,
         unitsinlist=Unit_Armylist.query.filter_by(Armylist_id=list_id).all(),
-        unittype=UnitType.query.filter_by(ArmyType_id=army_id).all()
+        unittype=UnitType.query.filter_by(ArmyType_id=army_id).all(),
+        form=form
     )
 
 
-nu = ''
+@app.route("/lists/edit/<list_id>/edit/<unittype_id>/<uil_id>", methods=["GET", "POST"])
+@login_required
+def list_edit_unit(list_id, unittype_id, uil_id):
+    army_list = Armylist.query.filter_by(id=list_id).first()
+    nu = Unit_Armylist.query.get(uil_id)
+    nu.Armylist_id = list_id
+    if not current_user.id == army_list.account_id:
+        abort(404)
+    form = EditUnitForm(request.form)
+    form.unit_id = nu.Unit_id
+    list_id = list_id
+    unittype_id = unittype_id
+    uil_id = uil_id
+
+    update_choices = UnitUpdates.query.filter_by(unit_id=nu.Unit_id).all()
+    update_choise_list = [(
+        str(upd.id),
+        f"{upd.name} | {upd.cost} {'per/model' if upd.per else ''}"
+    ) for upd in update_choices]
+    unit = Unit.query.filter_by(id=nu.Unit_id).first()
+    if unit.default_updates:
+        update_choise_list.append((str(1), 'Champion | 20'))
+        update_choise_list.append((str(2), 'Musician | 20'))
+        update_choise_list.append((str(3), 'Banner | 20'))
+    form.updates.choices = update_choise_list
+
+    if request.method == 'POST' and form.validate() and form.final.data:
+        nu.amount = request.form.get("amount")
+        for deletes in nu.updates:
+            db.session().delete(deletes)
+        this_unit = Unit.query.filter_by(id=nu.Unit_id).first()
+        if not this_unit.cost_per:
+            totalcost = this_unit.start_cost
+        else:
+            extra = int(nu.amount) - this_unit.start_number
+            totalcost = this_unit.start_cost + this_unit.cost_per * extra
+
+        for ans in form.updates.data:
+            this_update = UnitUpdates.query.filter_by(id=ans).first()
+            if this_update.per:
+                totalcost += this_update.cost * int(nu.amount)
+            else:
+                totalcost += this_update.cost
+            update_to_unit_in_list = Unit_ArmylistUpdate()
+            update_to_unit_in_list.unit_in_army_list = nu
+            update_to_unit_in_list.update = this_update
+            db.session().add(update_to_unit_in_list)
+
+        nu.final_cost = totalcost
+
+        db.session().commit()
+        return redirect(url_for('lists_edit', list_id=list_id))
+
+    form.amount.data = nu.amount
+
+    return render_template(
+        "lists/edit_unit.html",
+        form=form,
+        list_id=list_id,
+        unittype_id=unittype_id,
+        uil_id=uil_id,
+        nu=nu
+    )
+
+
+nu = None
+
 
 @app.route("/lists/edit/<list_id>/add/<unittype_id>", methods=["POST", "GET"])
 @login_required
@@ -149,9 +228,10 @@ def list_add_unit(list_id, unittype_id):
         ) for unit in unit_choices
     ]
     if request.method == 'POST' and form.validate() and form.final.data:
-        totalcost = 0
-        updates_string = '                '
-        extra = 1;
+        if nu == None:
+            nu = Unit_Armylist(form.unit.data, form.amount.data)
+            nu.Armylist_id = list_id
+
         this_unit = Unit.query.filter_by(id=form.unit.data).first()
         if not this_unit.cost_per:
             totalcost = this_unit.start_cost
@@ -165,15 +245,16 @@ def list_add_unit(list_id, unittype_id):
                 totalcost += this_update.cost * form.amount.data
             else:
                 totalcost += this_update.cost
+            update_to_unit_in_list = Unit_ArmylistUpdate()
+            update_to_unit_in_list.unit_in_army_list = nu
+            update_to_unit_in_list.update = this_update
+            db.session().add(update_to_unit_in_list)
 
-            str(updates_string) + str(this_update.name)
-            str(updates_string) + ', '
-
-        nu.updates = updates_string
         nu.final_cost = totalcost
 
         db.session().add(nu)
         db.session().commit()
+        nu = None
         return redirect(url_for('lists_edit', list_id=list_id))
 
     if request.method == 'POST' and form.validate():
