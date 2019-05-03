@@ -11,13 +11,8 @@ These unit types also have a maximum amount of points you can spend on them so t
 For each unit type there will aslo be roughly 5 to 10 diffrent units which have a cost and amount of figures in that unit and the possibility to get more figures into that unit to make it bigger.
 
 Link to currently working [Heroku](https://fiarlima-python-demo.herokuapp.com/) version 
-(unfortunately without the data from lists.db). 
 
-Link to planned [database diagram](../master/documentation/Fiarlima.pdf) and to [use cases](../master/documentation/UseCases.md) .
-
-The site checks if the tables are empty when opening army data and if they are it fills them.
-
-looking in the armydata/models.py file you can see what it is supposed to fill it with. [Picture1](../master/documentation/armydata1.png)  [picture2](../master/documentation/armydata2.png) 
+Link to planned [database diagram](../master/documentation/Fiarlima.pdf) and to [use cases/aftermath](../master/documentation/UseCases.md) .
 
 How to use [Tutorial](../master/documentation/howdo.md)
 
