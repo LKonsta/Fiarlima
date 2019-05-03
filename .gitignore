@@ -1,6 +1,7 @@
 venv
 __pycache__
 lists.db
+.idea
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
